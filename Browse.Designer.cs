@@ -40,6 +40,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.dataGridViewUsers.Enabled = false;
             this.dataGridViewUsers.Location = new System.Drawing.Point(55, 90);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.RowHeadersWidth = 62;
@@ -76,8 +78,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridViewUsers;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGridViewUsers;
     }
 }

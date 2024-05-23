@@ -42,3 +42,47 @@ D:\sophomore\2-2\melodisc-a music app\obj\Debug\melodisc_a_music_app.SignUp.reso
 D:\sophomore\2-2\melodisc-a music app\obj\Debug\melodisc_a_music_app.Home.resources
 D:\sophomore\2-2\melodisc-a music app\obj\Debug\melodisc_a_music_app.Explorer.resources
 D:\sophomore\2-2\melodisc-a music app\obj\Debug\melodisc_a_music_app.Browse.resources
+D:\sophomore\2-2\Melodisc\bin\Debug\melodisc-a music app.exe.config
+D:\sophomore\2-2\Melodisc\bin\Debug\melodisc-a music app.exe
+D:\sophomore\2-2\Melodisc\bin\Debug\melodisc-a music app.pdb
+D:\sophomore\2-2\Melodisc\bin\Debug\EntityFramework.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\EntityFramework.SqlServer.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Buffers.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Formats.Asn1.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Memory.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Numerics.Vectors.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Text.Encodings.Web.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Text.Json.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\System.ValueTuple.dll
+D:\sophomore\2-2\Melodisc\bin\Debug\EntityFramework.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\EntityFramework.SqlServer.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Buffers.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Formats.Asn1.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Memory.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Numerics.Vectors.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Text.Encodings.Web.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Text.Json.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\sophomore\2-2\Melodisc\bin\Debug\System.ValueTuple.xml
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.csproj.AssemblyReference.cache
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.csproj.SuggestedBindingRedirects.cache
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.Browse.resources
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.Explorer.resources
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.Form1.resources
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.Home.resources
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.Properties.Resources.resources
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.SignUp.resources
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.csproj.GenerateResource.cache
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.csproj.CoreCompileInputs.cache
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.csproj.CopyComplete
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.exe
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.pdb

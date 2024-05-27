@@ -30,6 +30,7 @@
         {
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,11 +62,22 @@
             this.label4.TabIndex = 154;
             this.label4.Text = "MeLoDiSC";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(666, 24);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 45);
+            this.button1.TabIndex = 164;
+            this.button1.Text = "Home";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Browse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridViewUsers);
             this.Name = "Browse";
@@ -80,5 +92,6 @@
         #endregion
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridViewUsers;
+        private System.Windows.Forms.Button button1;
     }
 }

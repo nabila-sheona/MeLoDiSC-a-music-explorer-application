@@ -12,11 +12,15 @@ using System.Xml.Linq;
 
 namespace melodisc_a_music_app
 {
-    public partial class AdminForm : Form
+    public partial class AddAlbum : Form
     {
         private OracleConnection connection;
 
-        public AdminForm()
+        private List<string> artist = new List<string>();
+       
+        private List<string> name = new List<string>();
+
+        public AddAlbum()
         {
             InitializeComponent();
             connection = new OracleConnection("User Id=melodisc1;Password=melodisc1;Data Source=localhost:1521");
@@ -31,52 +35,28 @@ namespace melodisc_a_music_app
             }
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AddAlbum home = new AddAlbum();
-            home.Show();
-            this.Hide();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            AddSong home = new AddSong();
+            AdminForm home = new AdminForm();
             home.Show();
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            AddArtist home = new AddArtist();
-            home.Show();
-            this.Hide();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form1 home = new Form1();
-            home.Show();
-            this.Hide();
-        }
-
-        private void AdminForm_Load(object sender, EventArgs e)
+        private void AddAlbum_Load(object sender, EventArgs e)
         {
             LoadUsers();
         }
         private void LoadUsers()
         {
-            string query = "SELECT name, username, password FROM users";
+            string query = "SELECT * FROM albums";
             OracleCommand cmd = new OracleCommand(query, connection);
             try
             {
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    name.Add(reader.GetString(0));
+                    artist.Add(reader.GetString(1));
                    
                 }
                 reader.Close();
@@ -85,6 +65,11 @@ namespace melodisc_a_music_app
             {
                 MessageBox.Show("Error loading users: " + ex.Message);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

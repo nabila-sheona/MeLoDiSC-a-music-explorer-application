@@ -53,5 +53,12 @@ namespace melodisc_a_music_app
                 MessageBox.Show("Error loading users: " + ex.Message);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+            this.Hide();
+        }
     }
 }

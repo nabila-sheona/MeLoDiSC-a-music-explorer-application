@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,11 +13,16 @@ using System.Xml.Linq;
 
 namespace melodisc_a_music_app
 {
-    public partial class AdminForm : Form
+    public partial class AddSong : Form
     {
         private OracleConnection connection;
 
-        public AdminForm()
+        private List<int> songnumber = new List<int>();
+        private List<string> artist = new List<string>();
+        private List<string> name = new List<string>();
+        private List<string> album = new List<string>();
+
+        public AddSong()
         {
             InitializeComponent();
             connection = new OracleConnection("User Id=melodisc1;Password=melodisc1;Data Source=localhost:1521");
@@ -31,53 +37,39 @@ namespace melodisc_a_music_app
             }
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AddAlbum home = new AddAlbum();
-            home.Show();
-            this.Hide();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            AddSong home = new AddSong();
+            AdminForm home = new AdminForm();
             home.Show();
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void AddSong_Load(object sender, EventArgs e)
         {
-            AddArtist home = new AddArtist();
-            home.Show();
-            this.Hide();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form1 home = new Form1();
-            home.Show();
-            this.Hide();
-        }
-
-        private void AdminForm_Load(object sender, EventArgs e)
-        {
+            string query = "SELECT username FROM users";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                name.Add(reader.GetString(0));
+            }
+            reader.Close();
+            
             LoadUsers();
         }
         private void LoadUsers()
         {
-            string query = "SELECT name, username, password FROM users";
+            string query = "SELECT * FROM songs";
             OracleCommand cmd = new OracleCommand(query, connection);
             try
             {
                 OracleDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                   
+                    name.Add(reader.GetString(0));
+                    artist.Add(reader.GetString(1));
+                    album.Add(reader.GetString(2));
+                    //SoapYear.Add(reader.GetString(3));
                 }
                 reader.Close();
             }
@@ -85,6 +77,11 @@ namespace melodisc_a_music_app
             {
                 MessageBox.Show("Error loading users: " + ex.Message);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

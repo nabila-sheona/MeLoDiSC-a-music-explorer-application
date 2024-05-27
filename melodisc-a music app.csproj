@@ -96,11 +96,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAlbum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAlbum.Designer.cs">
+      <DependentUpon>AddAlbum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddArtist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddArtist.Designer.cs">
+      <DependentUpon>AddArtist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSong.Designer.cs">
+      <DependentUpon>AddSong.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Artistprofile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Artistprofile.Designer.cs">
+      <DependentUpon>Artistprofile.cs</DependentUpon>
     </Compile>
     <Compile Include="Browse.cs">
       <SubType>Form</SubType>
@@ -134,8 +158,20 @@
     <Compile Include="SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAlbum.resx">
+      <DependentUpon>AddAlbum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddArtist.resx">
+      <DependentUpon>AddArtist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSong.resx">
+      <DependentUpon>AddSong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Artistprofile.resx">
+      <DependentUpon>Artistprofile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Browse.resx">
       <DependentUpon>Browse.cs</DependentUpon>

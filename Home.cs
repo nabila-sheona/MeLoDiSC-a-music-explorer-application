@@ -47,5 +47,18 @@ namespace melodisc_a_music_app
             otherForm.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Artistprofile otherForm = new Artistprofile();
+            otherForm.Show();
+            this.Hide();
+
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

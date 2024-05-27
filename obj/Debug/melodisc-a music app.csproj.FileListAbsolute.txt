@@ -86,3 +86,8 @@ D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.csproj.CoreCompileInput
 D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.csproj.CopyComplete
 D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.exe
 D:\sophomore\2-2\Melodisc\obj\Debug\melodisc-a music app.pdb
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.AddAlbum.resources
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.AddArtist.resources
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.AddSong.resources
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.AdminForm.resources
+D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.Artistprofile.resources

@@ -136,5 +136,89 @@ namespace melodisc_a_music_app
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdminLogin();
+        }
+
+        private void AdminLogin()
+        {
+            string adminId = Prompt.ShowDialog("Enter Admin ID:", "Admin Login");
+            string password = Prompt.ShowDialog("Enter Password:", "Admin Login");
+
+            if (ValidateAdminCredentials(adminId, password))
+            {
+                MessageBox.Show("Admin login successful");
+                AdminForm adminForm = new AdminForm();
+                adminForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Admin ID or Password");
+            }
+        }
+
+        private bool ValidateAdminCredentials(string adminId, string password)
+        {
+            string query = "SELECT COUNT(*) FROM admins WHERE admin_id = :adminId AND password = :password";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.Parameters.Add(new OracleParameter("adminId", adminId));
+            cmd.Parameters.Add(new OracleParameter("password", password));
+
+            try
+            {
+                int result = Convert.ToInt32(cmd.ExecuteScalar());
+                return result > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error validating admin credentials: " + ex.Message);
+                return false;
+            }
+        }
+
+
     }
+
+    public static class Prompt
+    {
+        public static string ShowDialog(string text, string caption)
+        {
+            Form prompt = new Form()
+            {
+                Width = 500,
+                Height = 150,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = caption,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
+            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
+            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { prompt.Close(); };
+            prompt.Controls.Add(textBox);
+            prompt.Controls.Add(confirmation);
+            prompt.Controls.Add(textLabel);
+            prompt.AcceptButton = confirmation;
+
+            return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
+        }
+    }
+
 }
+
+
+
+
+
+
+//CREATE TABLE admins (
+  //  admin_id VARCHAR2(50) PRIMARY KEY,
+    //password VARCHAR2(50) NOT NULL
+//);
+
+//INSERT INTO admins (admin_id, password) VALUES('sheona', 'sheona');
+//INSERT INTO admins (admin_id, password) VALUES('moumita', 'moumita');
+//INSERT INTO admins (admin_id, password) VALUES('faiza', 'faiza');

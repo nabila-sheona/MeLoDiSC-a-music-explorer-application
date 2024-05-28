@@ -9,16 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace melodisc_a_music_app
 {
     public partial class AddArtist : Form
     {
         private OracleConnection connection;
-        private List<int> year = new List<int>();
-        private List<string> email = new List<string>();
-        private List<string> name = new List<string>();
-        private List<string> gender = new List<string>();
+
+
+        //private List<int> year = new List<int>();
+        //private List<string> email = new List<string>();
+        //private List<string> name = new List<string>();
+        //private List<string> gender = new List<string>();
         public AddArtist()
         {
             InitializeComponent();
@@ -26,7 +29,7 @@ namespace melodisc_a_music_app
             try
             {
                 connection.Open();
-                LoadUsers();
+                
             }
             catch (Exception ex)
             {
@@ -52,6 +55,7 @@ namespace melodisc_a_music_app
         }
         private void LoadUsers()
         {
+            /*
             string query = "SELECT * FROM artists";
             OracleCommand cmd = new OracleCommand(query, connection);
             try
@@ -69,7 +73,7 @@ namespace melodisc_a_music_app
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading users: " + ex.Message);
-            }
+            }*/
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -83,12 +87,52 @@ namespace melodisc_a_music_app
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            //email
+            //gender
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //add to db
+            string artistName = textBox1.Text;
+            string email = textBox2.Text;
+            string gender = textBox3.Text;
+            int birthYear = int.Parse(textBox4.Text);
+            int noOfSongs = int.Parse(textBox6.Text);
+            int noOfAlbums = int.Parse(textBox7.Text);
+            string biography = richTextBox1.Text;
+
+            try
+            {
+                // Insert new artist into artists table
+                string insertQuery = "INSERT INTO artists (artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography) " +
+                                     "VALUES (:artistName, :gender, :email, :birthYear, :noOfSongs, :noOfAlbums, :biography)";
+
+                OracleCommand insertCmd = new OracleCommand(insertQuery, connection);
+                insertCmd.Parameters.Add(new OracleParameter("artistName", artistName));
+                insertCmd.Parameters.Add(new OracleParameter("gender", gender));
+                insertCmd.Parameters.Add(new OracleParameter("email", email));
+                insertCmd.Parameters.Add(new OracleParameter("birthYear", birthYear));
+                insertCmd.Parameters.Add(new OracleParameter("noOfSongs", noOfSongs));
+                insertCmd.Parameters.Add(new OracleParameter("noOfAlbums", noOfAlbums));
+                insertCmd.Parameters.Add(new OracleParameter("biography", OracleDbType.Clob)).Value = biography;
+
+                int rowsAffected = insertCmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Artist added successfully.");
+                    AdminForm f1 = new AdminForm();
+                    f1.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Error adding artist.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inserting artist: " + ex.Message);
+            }
+
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -113,7 +157,12 @@ namespace melodisc_a_music_app
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            //gender
+           //email
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

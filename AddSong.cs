@@ -98,7 +98,7 @@ namespace melodisc_a_music_app
                 string genreQuery = "SELECT genre_id FROM genres WHERE genre_name = :genreName";
                 OracleCommand genreCmd = new OracleCommand(genreQuery, connection);
                 genreCmd.Parameters.Add(new OracleParameter("genreName", genreName));
-                int genreId = 0;
+                int genreId;
                 OracleDataReader genreReader = genreCmd.ExecuteReader();
                 if (genreReader.Read())
                 {
@@ -118,12 +118,9 @@ namespace melodisc_a_music_app
                     genreCmd = new OracleCommand(genreQuery, connection);
                     genreCmd.Parameters.Add(new OracleParameter("genreName", genreName));
                     genreReader = genreCmd.ExecuteReader();
-
-
-                    if (genreReader.Read())
-                    {
-                        genreId = genreReader.GetInt32(0);
-                    }
+                    genreReader.Read();
+                    genreId = genreReader.GetInt32(0);
+                    
 
 
                 }

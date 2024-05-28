@@ -145,6 +145,13 @@ namespace melodisc_a_music_app
                 insertCmd.Parameters.Add(new OracleParameter("duration", duration));
                 insertCmd.Parameters.Add(new OracleParameter("releaseDate", releaseDate));
 
+
+
+                //incrementing no of songs of artist whose new song was added
+                string updateArtistQuery = "UPDATE artists SET no_of_songs = no_of_songs + 1 WHERE artist_name = :artistName";
+                OracleCommand updateArtistCmd = new OracleCommand(updateArtistQuery, connection);
+                updateArtistCmd.Parameters.Add(new OracleParameter("artistName", artistName));
+
                 int rowsAffected = insertCmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {

@@ -28,7 +28,7 @@ namespace melodisc_a_music_app
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //shows the users informations
         }
       
         private void Browse_Load(object sender, EventArgs e)
@@ -37,11 +37,30 @@ namespace melodisc_a_music_app
 
         }
 
+
         private void LoadUsers()
         {
             try
             {
-                string query = "SELECT name, username, email FROM users order by name asc";
+                string query;
+                
+                switch(comboBox1.SelectedItem.ToString())
+                {
+                    case "Alphabetical":
+                        query = " Select name, username, user_id, email, gender FROM users ORDER BY name ASC";
+                        break;
+                    case "Gender":
+                        query = " Select gender, name, username, user_id, email FROM users ORDER BY gender ASC, name ASC";
+                        break;
+                    case "User ID":
+                        query = " Select user_id, name, username, email, gender FROM users ORDER BY user_id ASC";
+                        break;
+                    default:
+                        query = " Select user_id, name, username, email, gender FROM users ORDER BY user_id ASC"; 
+                        break;
+
+
+                }
                 OracleCommand cmd = new OracleCommand(query, connection);
                 OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
@@ -59,6 +78,11 @@ namespace melodisc_a_music_app
             Home home = new Home();
             home.Show();
             this.Hide();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

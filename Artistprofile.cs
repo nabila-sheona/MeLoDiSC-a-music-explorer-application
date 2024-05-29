@@ -155,11 +155,6 @@ namespace melodisc_a_music_app
         {
             //number of albums
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
     }
     }
 

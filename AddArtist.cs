@@ -94,7 +94,7 @@ namespace melodisc_a_music_app
         {
             string artistName = textBox1.Text;
             string email = textBox2.Text;
-            string gender = textBox3.Text;
+            string gender = comboBox1.Text;
             int birthYear = int.Parse(textBox4.Text);
             int noOfSongs = int.Parse(textBox6.Text);
             int noOfAlbums = int.Parse(textBox7.Text);
@@ -161,6 +161,11 @@ namespace melodisc_a_music_app
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

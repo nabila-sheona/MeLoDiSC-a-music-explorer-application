@@ -87,10 +87,9 @@ namespace melodisc_a_music_app
             string artistName = textBox2.Text;
             string albumName = textBox3.Text;
             int songNumber = int.Parse(textBox4.Text);
-            string genreName = comboBox1.Text;
+            string genreName = textBox5.Text;
             double duration = double.Parse(textBox6.Text);
             DateTime releaseDate = dateTimePicker1.Value;
-
 
             try
             {
@@ -112,20 +111,14 @@ namespace melodisc_a_music_app
                     insertGenreCmd.Parameters.Add(new OracleParameter("genreName", genreName));
                     insertGenreCmd.ExecuteNonQuery();
 
-
-
                     // Fetch the newly inserted genre_id
                     genreCmd = new OracleCommand(genreQuery, connection);
                     genreCmd.Parameters.Add(new OracleParameter("genreName", genreName));
                     genreReader = genreCmd.ExecuteReader();
                     genreReader.Read();
                     genreId = genreReader.GetInt32(0);
-                    
-
-
                 }
                 genreReader.Close();
-
 
                 // Fetch artist_id from artists table
                 string artistQuery = "SELECT artist_id FROM artists WHERE artist_name = :artistName";
@@ -145,9 +138,7 @@ namespace melodisc_a_music_app
                 }
                 artistReader.Close();
 
-
-
-                // Check if album exists
+                // Fetch album_id from albums table
                 string albumQuery = "SELECT album_id FROM albums WHERE album_name = :albumName";
                 OracleCommand albumCmd = new OracleCommand(albumQuery, connection);
                 albumCmd.Parameters.Add(new OracleParameter("albumName", albumName));
@@ -166,33 +157,32 @@ namespace melodisc_a_music_app
                 }
                 albumReader.Close();
 
-
-
-
-
-
                 // Insert new song into songs table
                 string insertQuery = "INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id) " +
                                      "VALUES (:songName, :albumName, :songNumber, :genreId, :duration, :releaseDate, :artistId)";
                 OracleCommand insertCmd = new OracleCommand(insertQuery, connection);
                 insertCmd.Parameters.Add(new OracleParameter("songName", songName));
                 insertCmd.Parameters.Add(new OracleParameter("albumName", albumName));
-                insertCmd.Parameters.Add(new OracleParameter("trackNumber", songNumber));
+                insertCmd.Parameters.Add(new OracleParameter("songNumber", songNumber));
                 insertCmd.Parameters.Add(new OracleParameter("genreId", genreId));
                 insertCmd.Parameters.Add(new OracleParameter("duration", duration));
                 insertCmd.Parameters.Add(new OracleParameter("releaseDate", releaseDate));
-                insertCmd.Parameters.Add(new OracleParameter("artistName", artistId));
-
-
-
-                //incrementing no of songs of artist whose new song was added
-                string updateArtistQuery = "UPDATE artists SET no_of_songs = no_of_songs + 1 WHERE artist_name = :artistName";
-                OracleCommand updateArtistCmd = new OracleCommand(updateArtistQuery, connection);
-                updateArtistCmd.Parameters.Add(new OracleParameter("artistName", artistName));
+                insertCmd.Parameters.Add(new OracleParameter("artistId", artistId));
 
                 int rowsAffected = insertCmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
+                    // Increment the number of songs and albums for the artist
+                    string updateArtistQuery = @"
+                UPDATE artists 
+                SET no_of_songs = no_of_songs + 1, 
+                    no_of_albums = no_of_albums + 
+                    (SELECT COUNT(*) FROM albums WHERE artist_id = :artistId)
+                WHERE artist_id = :artistId";
+                    OracleCommand updateArtistCmd = new OracleCommand(updateArtistQuery, connection);
+                    updateArtistCmd.Parameters.Add(new OracleParameter("artistId", artistId));
+                    updateArtistCmd.ExecuteNonQuery();
+
                     MessageBox.Show("Song added successfully.");
                     AdminForm f1 = new AdminForm();
                     f1.Show();
@@ -207,9 +197,6 @@ namespace melodisc_a_music_app
             {
                 MessageBox.Show("Error inserting song: " + ex.Message);
             }
-
-
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

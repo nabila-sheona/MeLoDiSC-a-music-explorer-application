@@ -78,10 +78,12 @@ namespace melodisc_a_music_app
         private void LoadSongs(string artistName)
         {
             string query = @"
-                SELECT s.song_name AS ""Song Name"", s.album_name AS ""Album Name"", s.song_number AS ""Song Number"", g.genre_name AS ""Genre"", s.release_date AS ""Release Date""
-                FROM songs s, genres g 
-                JOIN artists a ON s.artist_id = a.artist_id
-                WHERE a.artist_name = :artistName and s.genre_id = g.genre_id";
+        SELECT s.song_name AS ""Song Name"", s.album_name AS ""Album Name"", s.song_number AS ""Song Number"", g.genre_name AS ""Genre"", s.release_date AS ""Release Date""
+        FROM songs s
+        JOIN artists ar ON s.artist_id = ar.artist_id
+        JOIN genres g ON s.genre_id = g.genre_id
+        WHERE ar.artist_name = :artistName";
+
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.Parameters.Add(new OracleParameter("artistName", artistName));
 
@@ -98,13 +100,16 @@ namespace melodisc_a_music_app
             }
         }
 
+
+
         private void LoadAlbums(string artistName)
         {
             string query = @"
-                SELECT a.album_name AS ""Album Name"", a.release_date AS ""Release Date"" 
-                FROM albums a
-                JOIN artists ar ON a.artist_id = ar.artist_id
+                SELECT al.album_name AS ""Album Name"", al.release_date AS ""Release Date""
+                FROM albums al
+                JOIN artists ar ON al.artist_id = ar.artist_id
                 WHERE ar.artist_name = :artistName";
+
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.Parameters.Add(new OracleParameter("artistName", artistName));
 
@@ -144,6 +149,7 @@ namespace melodisc_a_music_app
                 MessageBox.Show("Error loading artist counts: " + ex.Message);
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {

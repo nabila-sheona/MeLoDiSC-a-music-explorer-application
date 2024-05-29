@@ -60,5 +60,12 @@ namespace melodisc_a_music_app
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Review otherForm = new Review(UserSession.user_name);
+            otherForm.Show();
+            this.Hide();
+        }
     }
 }

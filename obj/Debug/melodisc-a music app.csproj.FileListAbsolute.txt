@@ -139,3 +139,54 @@ C:\Users\User\Desktop\melo\obj\Debug\melodisc-a music app.csproj.CoreCompileInpu
 C:\Users\User\Desktop\melo\obj\Debug\melodisc-a music app.csproj.CopyComplete
 C:\Users\User\Desktop\melo\obj\Debug\melodisc-a music app.exe
 C:\Users\User\Desktop\melo\obj\Debug\melodisc-a music app.pdb
+D:\MeloDisc\bin\Debug\melodisc-a music app.exe.config
+D:\MeloDisc\bin\Debug\melodisc-a music app.exe
+D:\MeloDisc\bin\Debug\melodisc-a music app.pdb
+D:\MeloDisc\bin\Debug\EntityFramework.dll
+D:\MeloDisc\bin\Debug\EntityFramework.SqlServer.dll
+D:\MeloDisc\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\MeloDisc\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\MeloDisc\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+D:\MeloDisc\bin\Debug\System.Buffers.dll
+D:\MeloDisc\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\MeloDisc\bin\Debug\System.Formats.Asn1.dll
+D:\MeloDisc\bin\Debug\System.Memory.dll
+D:\MeloDisc\bin\Debug\System.Numerics.Vectors.dll
+D:\MeloDisc\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\MeloDisc\bin\Debug\System.Text.Encodings.Web.dll
+D:\MeloDisc\bin\Debug\System.Text.Json.dll
+D:\MeloDisc\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\MeloDisc\bin\Debug\System.ValueTuple.dll
+D:\MeloDisc\bin\Debug\EntityFramework.xml
+D:\MeloDisc\bin\Debug\EntityFramework.SqlServer.xml
+D:\MeloDisc\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\MeloDisc\bin\Debug\System.Buffers.xml
+D:\MeloDisc\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\MeloDisc\bin\Debug\System.Formats.Asn1.xml
+D:\MeloDisc\bin\Debug\System.Memory.xml
+D:\MeloDisc\bin\Debug\System.Numerics.Vectors.xml
+D:\MeloDisc\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\MeloDisc\bin\Debug\System.Text.Encodings.Web.xml
+D:\MeloDisc\bin\Debug\System.Text.Json.xml
+D:\MeloDisc\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\MeloDisc\bin\Debug\System.ValueTuple.xml
+D:\MeloDisc\obj\Debug\melodisc-a music app.csproj.AssemblyReference.cache
+D:\MeloDisc\obj\Debug\melodisc-a music app.csproj.SuggestedBindingRedirects.cache
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.AddAlbum.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.AddArtist.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.AddSong.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.AdminForm.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.Artistprofile.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.Browse.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.Explorer.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.Form1.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.Home.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.Properties.Resources.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.SignUp.resources
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.UserProfile.resources
+D:\MeloDisc\obj\Debug\melodisc-a music app.csproj.GenerateResource.cache
+D:\MeloDisc\obj\Debug\melodisc-a music app.csproj.CoreCompileInputs.cache
+D:\MeloDisc\obj\Debug\melodisc-a music app.csproj.CopyComplete
+D:\MeloDisc\obj\Debug\melodisc-a music app.exe
+D:\MeloDisc\obj\Debug\melodisc-a music app.pdb
+D:\MeloDisc\obj\Debug\melodisc_a_music_app.Review.resources

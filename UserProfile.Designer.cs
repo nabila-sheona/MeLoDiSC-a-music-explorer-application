@@ -122,6 +122,7 @@
             this.Controls.Add(this.label4);
             this.Name = "UserProfile";
             this.Text = "UserProfile";
+            this.Load += new System.EventHandler(this.UserProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);

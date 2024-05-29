@@ -157,5 +157,10 @@ namespace melodisc_a_music_app
                 MessageBox.Show("Error changing password: " + ex.Message);
             }
         }
+
+        private void UserProfile_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

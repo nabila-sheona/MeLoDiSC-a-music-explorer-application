@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 
 namespace melodisc_a_music_app
@@ -88,6 +89,8 @@ namespace melodisc_a_music_app
                 // Clear text boxes for the next login attempt
                 textBox1.Text = "";
                 textBox2.Text = "";
+
+                UserSession.user_name = usern;
 
                 Home home = new Home();
                 home.Show();

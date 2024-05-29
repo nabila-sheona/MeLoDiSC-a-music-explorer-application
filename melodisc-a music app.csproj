@@ -164,6 +164,7 @@
     <Compile Include="UserProfile.Designer.cs">
       <DependentUpon>UserProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserSession.cs" />
     <EmbeddedResource Include="AddAlbum.resx">
       <DependentUpon>AddAlbum.cs</DependentUpon>
     </EmbeddedResource>

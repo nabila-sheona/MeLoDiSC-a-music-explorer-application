@@ -43,7 +43,7 @@ namespace melodisc_a_music_app
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UserProfile otherForm = new UserProfile();
+            UserProfile otherForm = new UserProfile(UserSession.user_name);
             otherForm.Show();
             this.Hide();
         }

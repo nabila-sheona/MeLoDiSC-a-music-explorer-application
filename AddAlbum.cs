@@ -133,5 +133,10 @@ namespace melodisc_a_music_app
         {
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

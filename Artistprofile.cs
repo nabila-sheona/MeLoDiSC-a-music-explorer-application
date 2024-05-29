@@ -37,17 +37,17 @@ namespace melodisc_a_music_app
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //list of songs by the artist from songs table
+            //shows the list of songs by the artist from songs table
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //list of albums by the artist from artist table
+            //shows the list of albums by the artist from artist table
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            //insert name of the artist we are looking for
+            //inserts name of the artist we are looking for
 
         }
 
@@ -77,7 +77,11 @@ namespace melodisc_a_music_app
 
         private void LoadSongs(string artistName)
         {
-            string query = "SELECT song_name AS \"Song Name\", album_name AS \"Album Name\", track_number AS \"Track Number\" FROM songs WHERE artist_name = :artistName";
+            string query = @"
+                SELECT s.song_name AS ""Song Name"", s.album_name AS ""Album Name"", s.song_number AS ""Song Number"", g.genre_name AS ""Genre"", s.release_date AS ""Release Date""
+                FROM songs s, genres g 
+                JOIN artists a ON s.artist_id = a.artist_id
+                WHERE a.artist_name = :artistName and s.genre_id = g.genre_id";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.Parameters.Add(new OracleParameter("artistName", artistName));
 
@@ -96,7 +100,11 @@ namespace melodisc_a_music_app
 
         private void LoadAlbums(string artistName)
         {
-            string query = "SELECT album_name AS \"Album Name\" FROM albums WHERE artist_name = :artistName";
+            string query = @"
+                SELECT a.album_name AS ""Album Name"", a.release_date AS ""Release Date"" 
+                FROM albums a
+                JOIN artists ar ON a.artist_id = ar.artist_id
+                WHERE ar.artist_name = :artistName";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.Parameters.Add(new OracleParameter("artistName", artistName));
 
@@ -116,7 +124,6 @@ namespace melodisc_a_music_app
         private void LoadArtistCounts(string artistName)
         {
             string query = "SELECT no_of_songs, no_of_albums FROM artists WHERE artist_name = :artistName";
-
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.Parameters.Add(new OracleParameter("artistName", artistName));
 

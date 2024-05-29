@@ -87,7 +87,7 @@ namespace melodisc_a_music_app
             string artistName = textBox2.Text;
             string albumName = textBox3.Text;
             int songNumber = int.Parse(textBox4.Text);
-            string genreName = textBox7.Text;
+            string genreName = comboBox1.Text;
             double duration = double.Parse(textBox6.Text);
             DateTime releaseDate = dateTimePicker1.Value;
 
@@ -228,6 +228,11 @@ namespace melodisc_a_music_app
         }
 
         private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

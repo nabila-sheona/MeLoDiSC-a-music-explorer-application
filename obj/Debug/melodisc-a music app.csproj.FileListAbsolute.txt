@@ -91,3 +91,51 @@ D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.AddArtist.resources
 D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.AddSong.resources
 D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.AdminForm.resources
 D:\sophomore\2-2\Melodisc\obj\Debug\melodisc_a_music_app.Artistprofile.resources
+C:\Users\User\Desktop\melo\bin\Debug\melodisc-a music app.exe.config
+C:\Users\User\Desktop\melo\bin\Debug\melodisc-a music app.exe
+C:\Users\User\Desktop\melo\bin\Debug\melodisc-a music app.pdb
+C:\Users\User\Desktop\melo\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\melo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\melo\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\User\Desktop\melo\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\User\Desktop\melo\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\User\Desktop\melo\bin\Debug\System.Buffers.dll
+C:\Users\User\Desktop\melo\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\User\Desktop\melo\bin\Debug\System.Formats.Asn1.dll
+C:\Users\User\Desktop\melo\bin\Debug\System.Memory.dll
+C:\Users\User\Desktop\melo\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\User\Desktop\melo\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\User\Desktop\melo\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\User\Desktop\melo\bin\Debug\System.Text.Json.dll
+C:\Users\User\Desktop\melo\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\User\Desktop\melo\bin\Debug\System.ValueTuple.dll
+C:\Users\User\Desktop\melo\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\melo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\melo\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\User\Desktop\melo\bin\Debug\System.Buffers.xml
+C:\Users\User\Desktop\melo\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\User\Desktop\melo\bin\Debug\System.Formats.Asn1.xml
+C:\Users\User\Desktop\melo\bin\Debug\System.Memory.xml
+C:\Users\User\Desktop\melo\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\User\Desktop\melo\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\User\Desktop\melo\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\User\Desktop\melo\bin\Debug\System.Text.Json.xml
+C:\Users\User\Desktop\melo\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\User\Desktop\melo\bin\Debug\System.ValueTuple.xml
+C:\Users\User\Desktop\melo\obj\Debug\melodisc-a music app.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.AddAlbum.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.AddArtist.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.AddSong.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.AdminForm.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.Artistprofile.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.Browse.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.Explorer.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.Form1.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.Home.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.Properties.Resources.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc_a_music_app.SignUp.resources
+C:\Users\User\Desktop\melo\obj\Debug\melodisc-a music app.csproj.GenerateResource.cache
+C:\Users\User\Desktop\melo\obj\Debug\melodisc-a music app.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\melo\obj\Debug\melodisc-a music app.csproj.CopyComplete
+C:\Users\User\Desktop\melo\obj\Debug\melodisc-a music app.exe
+C:\Users\User\Desktop\melo\obj\Debug\melodisc-a music app.pdb

@@ -127,20 +127,41 @@ namespace melodisc_a_music_app
                 genreReader.Close();
 
 
+                // Fetch artist_id from artists table
+                string artistQuery = "SELECT artist_id FROM artists WHERE artist_name = :artistName";
+                OracleCommand artistCmd = new OracleCommand(artistQuery, connection);
+                artistCmd.Parameters.Add(new OracleParameter("artistName", artistName));
+                int artistId = 0;
+                OracleDataReader artistReader = artistCmd.ExecuteReader();
+                if (artistReader.Read())
+                {
+                    artistId = artistReader.GetInt32(0);
+                }
+                else
+                {
+                    MessageBox.Show("Artist not found.");
+                    artistReader.Close();
+                    return;
+                }
+                artistReader.Close();
+
+
+
+
 
 
 
                 // Insert new song into songs table
-                string insertQuery = "INSERT INTO songs (song_name, artist_name, album_name, song_number, genre_id, duration, release_date) " +
-                                     "VALUES (:songName, :artistName, :albumName, :songNumber, :genreId, :duration, :releaseDate)";
+                string insertQuery = "INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id) " +
+                                     "VALUES (:songName, :albumName, :songNumber, :genreId, :duration, :releaseDate, :artistId)";
                 OracleCommand insertCmd = new OracleCommand(insertQuery, connection);
                 insertCmd.Parameters.Add(new OracleParameter("songName", songName));
-                insertCmd.Parameters.Add(new OracleParameter("artistName", artistName));
                 insertCmd.Parameters.Add(new OracleParameter("albumName", albumName));
                 insertCmd.Parameters.Add(new OracleParameter("trackNumber", songNumber));
                 insertCmd.Parameters.Add(new OracleParameter("genreId", genreId));
                 insertCmd.Parameters.Add(new OracleParameter("duration", duration));
                 insertCmd.Parameters.Add(new OracleParameter("releaseDate", releaseDate));
+                insertCmd.Parameters.Add(new OracleParameter("artistName", artistId));
 
 
 

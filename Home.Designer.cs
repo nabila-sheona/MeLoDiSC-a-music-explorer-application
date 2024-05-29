@@ -33,10 +33,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -86,16 +86,6 @@
             this.label1.Text = "Explorer";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(53, 145);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(202, 57);
-            this.button2.TabIndex = 155;
-            this.button2.Text = "BrowseUsers";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(669, 145);
@@ -123,6 +113,16 @@
             this.button3.Text = "ARTIST PROFILE";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(53, 145);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(202, 57);
+            this.button2.TabIndex = 155;
+            this.button2.Text = "USER PROFILE";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Home
             // 
@@ -155,7 +155,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }

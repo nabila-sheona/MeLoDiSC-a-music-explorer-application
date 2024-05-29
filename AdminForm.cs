@@ -1,4 +1,5 @@
-﻿using Oracle.ManagedDataAccess.Client;
+﻿using melodisc_a_music_app;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -86,5 +87,17 @@ namespace melodisc_a_music_app
                 MessageBox.Show("Error loading users: " + ex.Message);
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Browse otherForm = new Browse();
+            otherForm.Show();
+            this.Hide();
+
+        }
     }
 }
+
+
+
+

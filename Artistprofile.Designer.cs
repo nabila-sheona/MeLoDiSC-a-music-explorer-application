@@ -51,6 +51,7 @@
             this.label4.Size = new System.Drawing.Size(275, 60);
             this.label4.TabIndex = 154;
             this.label4.Text = "MeLoDiSC";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label1
             // 
@@ -160,6 +161,7 @@
             this.Controls.Add(this.label4);
             this.Name = "Artistprofile";
             this.Text = "Artistprofile";
+            this.Load += new System.EventHandler(this.Artistprofile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);

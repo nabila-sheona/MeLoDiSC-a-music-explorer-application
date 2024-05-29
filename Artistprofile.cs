@@ -155,58 +155,20 @@ namespace melodisc_a_music_app
         {
             //number of albums
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Artistprofile_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     }
 
 
-
-
-//CREATE TABLE songs (
-//song_id INT PRIMARY KEY,
-//song_name VARCHAR(255),
-//  artist_name VARCHAR(255),
-//album_name VARCHAR(255),
-//track_number INT
-//);
-
-//CREATE TABLE albums (
-//  album_id INT PRIMARY KEY,
-// album_name VARCHAR(255),
-//artist_name VARCHAR(255)
-//);
-
-//CREATE TABLE artists (
-//  artist_name VARCHAR(255) PRIMARY KEY,
-//gender VARCHAR(10),
-//email VARCHAR(255),
-//birthyear INT,
-//no_of_songs INT,
-//no_of_albums INT
-//);
-
-/*
-INSERT INTO artists (artist_name, gender, email, birthyear, no_of_songs, no_of_albums) VALUES ('Taylor Swift', 'Female', 'taylor@swift.com', 1989, 5, 2);
-INSERT INTO artists (artist_name, gender, email, birthyear, no_of_songs, no_of_albums) VALUES ('Daya', 'Female', 'daya@daya.com', 1998, 3, 1);
-INSERT INTO artists (artist_name, gender, email, birthyear, no_of_songs, no_of_albums) VALUES ('Maroon 5', 'Male', 'contact@maroon5.com', 2001, 4, 2);
-INSERT INTO albums (album_id, album_name, artist_name) VALUES (1, '1989', 'Taylor Swift');
-INSERT INTO albums (album_id, album_name, artist_name) VALUES (2, 'Reputation', 'Taylor Swift');
-INSERT INTO albums (album_id, album_name, artist_name) VALUES (3, 'Sit Still, Look Pretty', 'Daya');
-INSERT INTO albums (album_id, album_name, artist_name) VALUES (4, 'Songs About Jane', 'Maroon 5');
-INSERT INTO albums (album_id, album_name, artist_name) VALUES (5, 'V', 'Maroon 5');
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (1, 'Shake It Off', 'Taylor Swift', '1989', 1);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (2, 'Blank Space', 'Taylor Swift', '1989', 2);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (3, 'Bad Blood', 'Taylor Swift', '1989', 3);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (4, 'Look What You Made Me Do', 'Taylor Swift', 'Reputation', 1);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (5, '...Ready for It?', 'Taylor Swift', 'Reputation', 2);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (6, 'Sit Still, Look Pretty', 'Daya', 'Sit Still, Look Pretty', 1);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (7, 'Hide Away', 'Daya', 'Sit Still, Look Pretty', 2);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (8, 'Words', 'Daya', 'Sit Still, Look Pretty', 3);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (9, 'This Love', 'Maroon 5', 'Songs About Jane', 1);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (10, 'She Will Be Loved', 'Maroon 5', 'Songs About Jane', 2);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (11, 'Sugar', 'Maroon 5', 'V', 1);
-INSERT INTO songs (song_id, song_name, artist_name, album_name, track_number) VALUES (12, 'Animals', 'Maroon 5', 'V', 2);
-
-*/
 
 
 

@@ -147,6 +147,26 @@ namespace melodisc_a_music_app
 
 
 
+                // Check if album exists
+                string albumQuery = "SELECT album_id FROM albums WHERE album_name = :albumName";
+                OracleCommand albumCmd = new OracleCommand(albumQuery, connection);
+                albumCmd.Parameters.Add(new OracleParameter("albumName", albumName));
+                int albumId = 0;
+                OracleDataReader albumReader = albumCmd.ExecuteReader();
+
+                if (albumReader.Read())
+                {
+                    albumId = albumReader.GetInt32(0);
+                }
+                else
+                {
+                    MessageBox.Show("Album not found.");
+                    albumReader.Close();
+                    return;
+                }
+                albumReader.Close();
+
+
 
 
 

@@ -88,5 +88,17 @@ namespace melodisc_a_music_app
             otherForm.Show();
             this.Hide();
         }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            Explorer otherForm = new Explorer(UserSession.user_name);
+            otherForm.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

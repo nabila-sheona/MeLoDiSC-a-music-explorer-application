@@ -48,9 +48,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(835, 574);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(829, 553);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 40);
+            this.button1.Size = new System.Drawing.Size(130, 61);
             this.button1.TabIndex = 172;
             this.button1.Text = "Home";
             this.button1.UseVisualStyleBackColor = true;
@@ -60,12 +61,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 118);
+            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(80, 125);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(461, 60);
+            this.label1.Size = new System.Drawing.Size(429, 40);
             this.label1.TabIndex = 165;
-            this.label1.Text = "Name of the user";
+            this.label1.Text = "Information of the user:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label4
@@ -73,7 +74,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(724, 23);
+            this.label4.Location = new System.Drawing.Point(684, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(275, 60);
             this.label4.TabIndex = 164;
@@ -81,9 +82,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(419, 541);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(375, 541);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(124, 50);
+            this.button2.Size = new System.Drawing.Size(168, 73);
             this.button2.TabIndex = 174;
             this.button2.Text = "Change Password";
             this.button2.UseVisualStyleBackColor = true;
@@ -102,6 +104,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.Enabled = false;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(270, 411);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -117,12 +120,13 @@
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(80, 350);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 29);
+            this.label3.Size = new System.Drawing.Size(82, 29);
             this.label3.TabIndex = 180;
-            this.label3.Text = "Gender";
+            this.label3.Text = "Email";
             // 
             // textBox3
             // 
+            this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(269, 344);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -133,6 +137,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(271, 215);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -148,9 +153,9 @@
             this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(81, 282);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 29);
+            this.label2.Size = new System.Drawing.Size(142, 29);
             this.label2.TabIndex = 178;
-            this.label2.Text = "username";
+            this.label2.Text = "Username";
             // 
             // label6
             // 
@@ -165,6 +170,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(270, 282);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -180,12 +186,13 @@
             this.label7.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(82, 480);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 29);
+            this.label7.Size = new System.Drawing.Size(106, 29);
             this.label7.TabIndex = 184;
-            this.label7.Text = "Email";
+            this.label7.Text = "Gender";
             // 
             // textBox5
             // 
+            this.textBox5.Enabled = false;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(269, 474);
             this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -200,14 +207,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewUsers.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridViewUsers.Enabled = false;
-            this.dataGridViewUsers.Location = new System.Drawing.Point(601, 193);
+            this.dataGridViewUsers.Location = new System.Drawing.Point(601, 125);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.RowHeadersWidth = 62;
             this.dataGridViewUsers.RowTemplate.Height = 28;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(358, 338);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(358, 406);
             this.dataGridViewUsers.TabIndex = 185;
             this.dataGridViewUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsers_CellContentClick);
             // 

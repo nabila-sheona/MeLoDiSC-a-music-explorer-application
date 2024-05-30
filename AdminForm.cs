@@ -95,6 +95,11 @@ namespace melodisc_a_music_app
             this.Hide();
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
 

@@ -49,7 +49,7 @@ namespace melodisc_a_music_app
                     switch (comboBox1.SelectedItem.ToString())
                     {
                         case "Alphabetical":
-                            query = "SELECT name, username, user_id, email, gender FROM users ORDER BY name ASC";
+                            query = "SELECT name, username, user_id, email, gender FROM users ORDER BY UPPER(name) ASC";
                             break;
                         case "Gender":
                             query = "SELECT gender, name, username, user_id, email FROM users ORDER BY gender ASC, name ASC";

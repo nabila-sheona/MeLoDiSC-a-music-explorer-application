@@ -58,6 +58,8 @@ namespace melodisc_a_music_app
 
         private void LoadTopAlbums(string criteria, int topN)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
             try
             {
                 OracleCommand cmd = new OracleCommand("GetTopAlbums", connection);
@@ -115,38 +117,30 @@ namespace melodisc_a_music_app
 
         private void LoadTopVocalists(string gender, int topN)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
             try
             {
-                OracleCommand cmd = new OracleCommand("GetTopVocalists", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("gender", OracleDbType.Varchar2).Value = gender;
-                cmd.Parameters.Add("topN", OracleDbType.Int32).Value = topN;
-                cmd.Parameters.Add("result", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+                OracleCommand command = new OracleCommand("GetTopVocalists", connection);
+                command.CommandType = CommandType.StoredProcedure;
 
-                OracleDataReader reader = cmd.ExecuteReader();
-                StringBuilder resultStringBuilder = new StringBuilder();
+                // Define the input parameters
+                command.Parameters.Add("p_gender", OracleDbType.Varchar2).Value = gender;
+                command.Parameters.Add("p_topN", OracleDbType.Int32).Value = topN;
 
-                while (reader.Read())
-                {
-                    for (int i = 0; i < reader.FieldCount; i++)
-                    {
-                        resultStringBuilder.Append(reader[i].ToString());
-                        if (i < reader.FieldCount - 1)
-                            resultStringBuilder.Append(",");
-                    }
-                    resultStringBuilder.Append(";");
-                }
+                // Define the output cursor parameter
+                command.Parameters.Add("p_cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
-                reader.Close();
-                string resultString = resultStringBuilder.ToString();
-                PopulateDataGridView(resultString, dataGridView1, new string[] { "Artist Name", "Average Rating" });
+                OracleDataReader reader = command.ExecuteReader();
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error executing query: {ex.Message}");
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
-
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -166,6 +160,8 @@ namespace melodisc_a_music_app
 
         private void LoadTopByMostReleased(int topN)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
             try
             {
                 OracleCommand cmd = new OracleCommand("GetTopArtistsByReleasedSongs", connection);

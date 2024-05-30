@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace melodisc_a_music_app
@@ -47,7 +48,8 @@ namespace melodisc_a_music_app
             string email = textBox3.Text;
             string gender = comboBox1.Text;
 
-            if (userName.Length >= 4 && pass.Length >= 6 && phone.Length > 11)
+            if (userName.Length >= 4 && pass.Length >= 6 && phone.Length >= 11 && email.Contains('@'))
+
             {
                 if (!user.Contains(userName))
                 {
@@ -81,7 +83,7 @@ namespace melodisc_a_music_app
             }
             else
             {
-                MessageBox.Show("Username must be at least 4 characters, password at least 6 characters, and phone number must be at least 12 characters.");
+                MessageBox.Show("Username must be at least 4 characters, password at least 6 characters, and phone number must be 11 digits, and use correct email format.");
             }
         }
 

@@ -97,7 +97,7 @@ namespace melodisc_a_music_app
                         richTextBox1.Text = reader.GetString(4); // Display existing review
                         textBox2.Enabled = false;
                         richTextBox1.Enabled = false;
-                        MessageBox.Show("You have already reviewed this song. Changes are not allowed.");
+                        MessageBox.Show("You have already reviewed this song :D");
                         button3.Enabled = false; // Disable post button
                     }
                     else
@@ -166,6 +166,10 @@ namespace melodisc_a_music_app
                         if (rowsUpdated > 0)
                         {
                             MessageBox.Show("Review posted successfully!");
+                            textBox2.Enabled = false;
+                            richTextBox1.Enabled = false;
+                            
+                            button3.Enabled = false; // Disable post button
                         }
                         else
                         {
@@ -207,6 +211,11 @@ namespace melodisc_a_music_app
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             //reviwew by the user of the song
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -42,10 +42,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewUsers.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridViewUsers.Enabled = false;
-            this.dataGridViewUsers.Location = new System.Drawing.Point(56, 73);
+            this.dataGridViewUsers.Location = new System.Drawing.Point(29, 95);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.RowHeadersWidth = 62;
             this.dataGridViewUsers.RowTemplate.Height = 28;
@@ -66,11 +67,12 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(746, 22);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(746, 388);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 45);
             this.button1.TabIndex = 164;
-            this.button1.Text = "Admin";
+            this.button1.Text = "Return";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -81,15 +83,16 @@
             "Alphabetical",
             "Gender",
             "User ID"});
-            this.comboBox1.Location = new System.Drawing.Point(29, 39);
+            this.comboBox1.Location = new System.Drawing.Point(746, 95);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
+            this.comboBox1.Size = new System.Drawing.Size(108, 28);
             this.comboBox1.TabIndex = 165;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 417);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(746, 161);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 45);
             this.button2.TabIndex = 166;

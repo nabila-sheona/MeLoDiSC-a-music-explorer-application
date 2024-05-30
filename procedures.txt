@@ -50,6 +50,7 @@ END;
 /
 
 
+
 CREATE OR REPLACE PROCEDURE GetTopArtistsByReleasedSongs (
     topN IN NUMBER,
     result OUT SYS_REFCURSOR
@@ -67,3 +68,61 @@ BEGIN
         WHERE rn <= topN;
 END;
 /
+
+
+CREATE OR REPLACE FUNCTION GetTopVocalist (
+    gender IN VARCHAR2,
+    topN IN NUMBER
+) RETURN SYS_REFCURSOR IS
+    result SYS_REFCURSOR;
+BEGIN
+    OPEN result FOR
+        SELECT artist_name, AVG(rating) AS avg_rating
+        FROM (
+            SELECT a.artist_name, r.rating
+            FROM artists a
+            JOIN songs s ON a.artist_id = s.artist_id
+            JOIN reviews r ON s.song_id = r.song_id
+            WHERE a.gender = gender
+            ORDER BY r.rating DESC
+        )
+        WHERE ROWNUM <= topN
+        GROUP BY artist_name;
+        
+    RETURN result;
+END;
+/
+
+SQL> CREATE OR REPLACE PROCEDURE GetTopVocalists(
+  2      p_gender IN VARCHAR2,
+  3      p_topN IN NUMBER,
+  4      p_cursor OUT SYS_REFCURSOR
+  5  )
+  6  AS
+  7  BEGIN
+  8      OPEN p_cursor FOR
+  9      SELECT * FROM (
+ 10          SELECT artist_name, AVG(rating) AS avg_rating
+ 11          FROM artists
+ 12          JOIN songs ON artists.artist_id = songs.artist_id
+ 13          JOIN reviews ON songs.song_id = reviews.song_id
+ 14          WHERE gender = p_gender
+ 15          GROUP BY artist_name
+ 16          ORDER BY avg_rating DESC
+ 17      )
+ 18      WHERE ROWNUM <= p_topN;
+ 19  END;
+ 20
+ 21  /
+
+Procedure created.
+
+
+
+
+
+
+
+
+
+

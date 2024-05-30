@@ -83,7 +83,7 @@ namespace melodisc_a_music_app
 
             if (userIndex >= 0 && pass.Count > userIndex && pass[userIndex] == password)
             {
-                MessageBox.Show("The username/password is correct");
+                //MessageBox.Show("The username/password is correct");
                 // Navigate to another form or functionality as required
 
                 // Clear text boxes for the next login attempt
@@ -182,7 +182,10 @@ namespace melodisc_a_music_app
             }
         }
 
-
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 
     public static class Prompt

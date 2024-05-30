@@ -48,7 +48,7 @@ namespace melodisc_a_music_app
 
         private void LoadUserProfile()
         {
-            label1.Text = user_name;
+            
             LoadUserDetails();
             LoadPlaylists();
         }
@@ -193,6 +193,11 @@ namespace melodisc_a_music_app
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

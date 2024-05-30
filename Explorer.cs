@@ -74,7 +74,7 @@ namespace melodisc_a_music_app
             string query;
             if (criteria == "Alphabetically")
             {
-                query = "SELECT * FROM songs ORDER BY song_name";
+                query = "SELECT * FROM songs ORDER BY UPPER(song_name)";
             }
             else if (criteria == "Genre-based")
             {
@@ -104,7 +104,7 @@ namespace melodisc_a_music_app
             string query;
             if (criteria == "Alphabetically")
             {
-                query = "SELECT * FROM albums ORDER BY album_name";
+                query = "SELECT * FROM albums ORDER BY UPPER(album_name)";
             }
             else if (criteria == "Release Date")
             {
@@ -131,7 +131,7 @@ namespace melodisc_a_music_app
             string query;
             if (criteria == "Alphabetically")
             {
-                query = "SELECT * FROM playlists WHERE user_id = :userId ORDER BY playlist_title";
+                query = "SELECT * FROM playlists WHERE user_id = :userId ORDER BY UPPER(playlist_title)";
             }
             else if ( criteria =="Release Date")
             {
@@ -139,7 +139,7 @@ namespace melodisc_a_music_app
             }
             else
             {
-                query = "SELECT * FROM playlists ORDER BY playlist_title WHERE user_id = :userId";
+                query = "SELECT * FROM playlists WHERE user_id = :userId ORDER BY playlist_title";
             }
 
             OracleCommand cmd = new OracleCommand(query, connection);
@@ -175,5 +175,9 @@ namespace melodisc_a_music_app
             }
         }
 
+        private void Explorer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

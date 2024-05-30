@@ -1,0 +1,291 @@
+-- Delete existing data to avoid conflicts if needed
+DELETE FROM artists;
+
+-- Insert data into the artists table
+INSERT INTO artists (artist_id, artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography)
+VALUES (100, 'Taylor Swift', 'Female', 'taylor@example.com', 1989, 0, 0, 'American singer-songwriter.');
+
+INSERT INTO artists (artist_id, artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography)
+VALUES (101, 'Ed Sheeran', 'Male', 'ed@example.com', 1991, 0, 0, 'English singer-songwriter.');
+
+INSERT INTO artists (artist_id, artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography)
+VALUES (102, 'Adele', 'Female', 'adele@example.com', 1988, 0, 0, 'English singer-songwriter.');
+
+INSERT INTO artists (artist_id, artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography)
+VALUES (103, 'Drake', 'Male', 'drake@example.com', 1986, 0, 0, 'Canadian rapper and singer.');
+
+INSERT INTO artists (artist_id, artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography)
+VALUES (104, 'Beyoncé', 'Female', 'beyonce@example.com', 1981, 0, 0, 'American singer, songwriter, and actress.');
+
+INSERT INTO artists (artist_id, artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography)
+VALUES (105, 'The Weeknd', 'Male', 'weeknd@example.com', 1990, 0, 0, 'Canadian singer and songwriter.');
+
+INSERT INTO artists (artist_id, artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography)
+VALUES (106, 'Billie Eilish', 'Female', 'billie@example.com', 2001, 0, 0, 'American singer-songwriter.');
+
+INSERT INTO artists (artist_id, artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography)
+VALUES (107, 'Justin Bieber', 'Male', 'justin@example.com', 1994, 0, 0, 'Canadian singer and songwriter.');
+
+INSERT INTO artists (artist_id, artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography)
+VALUES (108, 'Ariana Grande', 'Female', 'ariana@example.com', 1993, 0, 0, 'American singer and actress.');
+
+INSERT INTO artists (artist_id, artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography)
+VALUES (109, 'Shawn Mendes', 'Male', 'shawn@example.com', 1998, 0, 0, 'Canadian singer and songwriter.');
+
+-- Retrieve the artist IDs to verify they are inserted correctly
+SELECT artist_id, artist_name FROM artists;
+
+-- Assuming IDs have been auto-generated correctly by the triggers
+-- Insert data into the albums table
+INSERT INTO albums (album_name, artist_id, release_date)
+VALUES ('1989', (SELECT artist_id FROM artists WHERE artist_name = 'Taylor Swift'), TO_DATE('2014-10-27', 'YYYY-MM-DD'));
+
+INSERT INTO albums (album_name, artist_id, release_date)
+VALUES ('Divide', (SELECT artist_id FROM artists WHERE artist_name = 'Ed Sheeran'), TO_DATE('2017-03-03', 'YYYY-MM-DD'));
+
+INSERT INTO albums (album_name, artist_id, release_date)
+VALUES ('25', (SELECT artist_id FROM artists WHERE artist_name = 'Adele'), TO_DATE('2015-11-20', 'YYYY-MM-DD'));
+
+INSERT INTO albums (album_name, artist_id, release_date)
+VALUES ('Views', (SELECT artist_id FROM artists WHERE artist_name = 'Drake'), TO_DATE('2016-04-29', 'YYYY-MM-DD'));
+
+INSERT INTO albums (album_name, artist_id, release_date)
+VALUES ('I Am... Sasha Fierce', (SELECT artist_id FROM artists WHERE artist_name = 'Beyoncé'), TO_DATE('2008-11-12', 'YYYY-MM-DD'));
+
+INSERT INTO albums (album_name, artist_id, release_date)
+VALUES ('After Hours', (SELECT artist_id FROM artists WHERE artist_name = 'The Weeknd'), TO_DATE('2020-03-20', 'YYYY-MM-DD'));
+
+INSERT INTO albums (album_name, artist_id, release_date)
+VALUES ('When We All Fall Asleep, Where Do We Go?', (SELECT artist_id FROM artists WHERE artist_name = 'Billie Eilish'), TO_DATE('2019-03-29', 'YYYY-MM-DD'));
+
+INSERT INTO albums (album_name, artist_id, release_date)
+VALUES ('Purpose', (SELECT artist_id FROM artists WHERE artist_name = 'Justin Bieber'), TO_DATE('2015-11-13', 'YYYY-MM-DD'));
+
+INSERT INTO albums (album_name, artist_id, release_date)
+VALUES ('thank u, next', (SELECT artist_id FROM artists WHERE artist_name = 'Ariana Grande'), TO_DATE('2019-02-08', 'YYYY-MM-DD'));
+
+INSERT INTO albums (album_name, artist_id, release_date)
+VALUES ('Handwritten', (SELECT artist_id FROM artists WHERE artist_name = 'Shawn Mendes'), TO_DATE('2015-04-14', 'YYYY-MM-DD'));
+
+
+-- Retrieve the genre IDs and artist IDs to verify they are inserted correctly
+SELECT genre_id, genre_name FROM genres;
+SELECT artist_id, artist_name FROM artists;
+
+-- Assuming IDs have been auto-generated correctly by the triggers
+-- Insert data into the songs table
+INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id)
+VALUES ('Shake It Off', '1989', 1, (SELECT genre_id FROM genres WHERE genre_name = 'Pop'), 3.39, TO_DATE('2014-08-18', 'YYYY-MM-DD'), (SELECT artist_id FROM artists WHERE artist_name = 'Taylor Swift'));
+
+INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id)
+VALUES ('Blank Space', '1989', 2, (SELECT genre_id FROM genres WHERE genre_name = 'Pop'), 3.51, TO_DATE('2014-11-10', 'YYYY-MM-DD'), (SELECT artist_id FROM artists WHERE artist_name = 'Taylor Swift'));
+
+INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id)
+VALUES ('Shape of You', 'Divide', 1, (SELECT genre_id FROM genres WHERE genre_name = 'Pop'), 3.53, TO_DATE('2017-01-06', 'YYYY-MM-DD'), (SELECT artist_id FROM artists WHERE artist_name = 'Ed Sheeran'));
+
+INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id)
+VALUES ('Castle on the Hill', 'Divide', 2, (SELECT genre_id FROM genres WHERE genre_name = 'Rock'), 4.21, TO_DATE('2017-01-06', 'YYYY-MM-DD'), (SELECT artist_id FROM artists WHERE artist_name = 'Ed Sheeran'));
+
+INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id)
+VALUES ('Hello', '25', 1, (SELECT genre_id FROM genres WHERE genre_name = 'Pop'), 4.55, TO_DATE('2015-10-23', 'YYYY-MM-DD'), (SELECT artist_id FROM artists WHERE artist_name = 'Adele'));
+
+INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id)
+VALUES ('Send My Love', '25', 2, (SELECT genre_id FROM genres WHERE genre_name = 'Pop'), 3.43, TO_DATE('2016-05-16', 'YYYY-MM-DD'), (SELECT artist_id FROM artists WHERE artist_name = 'Adele'));
+
+INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id)
+VALUES ('One Dance', 'Views', 1, (SELECT genre_id FROM genres WHERE genre_name = 'Hip-Hop'), 2.54, TO_DATE('2016-04-05', 'YYYY-MM-DD'), (SELECT artist_id FROM artists WHERE artist_name = 'Drake'));
+
+INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id)
+VALUES ('Hotline Bling', 'Views', 2, (SELECT genre_id FROM genres WHERE genre_name = 'Hip-Hop'), 4.27, TO_DATE('2015-07-31', 'YYYY-MM-DD'), (SELECT artist_id FROM artists WHERE artist_name = 'Drake'));
+
+INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id)
+VALUES ('Single Ladies', 'I Am... Sasha Fierce', 1, (SELECT genre_id FROM genres WHERE genre_name = 'R&B'), 3.13, TO_DATE('2008-10-13', 'YYYY-MM-DD'), (SELECT artist_id FROM artists WHERE artist_name = 'Beyoncé'));
+
+INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id)
+VALUES ('Halo', 'I Am... Sasha Fierce', 2, (SELECT genre_id FROM genres WHERE genre_name = 'Pop'), 4.21, TO_DATE('2009-01-20', 'YYYY-MM-DD'), (SELECT artist_id FROM artists WHERE artist_name = 'Beyoncé'));
+
+
+
+INSERT INTO reviews (user_id, song_id, rating, review_date, review)
+VALUES (
+    (SELECT user_id FROM users WHERE username = 'johndoe'),
+    (SELECT song_id FROM songs WHERE song_name = 'Castle on the Hill'),
+    8,
+    TO_DATE('2024-01-16', 'YYYY-MM-DD'),
+    'Nostalgic and touching.'
+);
+
+INSERT INTO reviews (user_id, song_id, rating, review_date, review)
+VALUES (
+    (SELECT user_id FROM users WHERE username = 'janesmith'),
+    (SELECT song_id FROM songs WHERE song_name = 'One Dance'),
+    7,
+    TO_DATE('2024-01-17', 'YYYY-MM-DD'),
+    'Great rhythm, perfect for dancing.'
+);
+
+INSERT INTO reviews (user_id, song_id, rating, review_date, review)
+VALUES (
+    (SELECT user_id FROM users WHERE username = 'alicej'),
+    (SELECT song_id FROM songs WHERE song_name = 'Hotline Bling'),
+    6,
+    TO_DATE('2024-01-18', 'YYYY-MM-DD'),
+    'Catchy but a bit repetitive.'
+);
+
+INSERT INTO reviews (user_id, song_id, rating, review_date, review)
+VALUES (
+    (SELECT user_id FROM users WHERE username = 'bobbrown'),
+    (SELECT song_id FROM songs WHERE song_name = 'Single Ladies'),
+    10,
+    TO_DATE('2024-01-19', 'YYYY-MM-DD'),
+    'An all-time favorite. Empowering and fun!'
+);
+
+INSERT INTO reviews (user_id, song_id, rating, review_date, review)
+VALUES (
+    (SELECT user_id FROM users WHERE username = 'charlied'),
+    (SELECT song_id FROM songs WHERE song_name = 'Shake It Off'),
+    9,
+    TO_DATE('2024-01-20', 'YYYY-MM-DD'),
+    'Incredibly catchy and uplifting.'
+);
+
+INSERT INTO reviews (user_id, song_id, rating, review_date, review)
+VALUES (
+    (SELECT user_id FROM users WHERE username = 'dianae'),
+    (SELECT song_id FROM songs WHERE song_name = 'Blank Space'),
+    8,
+    TO_DATE('2024-01-21', 'YYYY-MM-DD'),
+    'Sharp lyrics and a great tune.'
+);
+
+INSERT INTO reviews (user_id, song_id, rating, review_date, review)
+VALUES (
+    (SELECT user_id FROM users WHERE username = 'ethanf'),
+    (SELECT song_id FROM songs WHERE song_name = 'Shape of You'),
+    10,
+    TO_DATE('2024-01-22', 'YYYY-MM-DD'),
+    'One of the best songs ever. Love it!'
+);
+
+INSERT INTO reviews (user_id, song_id, rating, review_date, review)
+VALUES (
+    (SELECT user_id FROM users WHERE username = 'fionag'),
+    (SELECT song_id FROM songs WHERE song_name = 'Hello'),
+    7,
+    TO_DATE('2024-01-23', 'YYYY-MM-DD'),
+    'Beautifully sung, though a bit sad.'
+);
+
+INSERT INTO reviews (user_id, song_id, rating, review_date, review)
+VALUES (
+    (SELECT user_id FROM users WHERE username = 'georgeh'),
+    (SELECT song_id FROM songs WHERE song_name = 'Send My Love'),
+    8,
+    TO_DATE('2024-01-24', 'YYYY-MM-DD'),
+    'Great beat and powerful message.'
+);
+
+INSERT INTO reviews (user_id, song_id, rating, review_date, review)
+VALUES (
+    (SELECT user_id FROM users WHERE username = 'hannahI'),
+    (SELECT song_id FROM songs WHERE song_name = 'Halo'),
+    9,
+    TO_DATE('2024-01-25', 'YYYY-MM-DD'),
+    'Inspiring and vocally impressive.'
+);
+
+
+
+-- Verify no duplicate genres
+SELECT genre_name, COUNT(*)
+FROM genres
+GROUP BY genre_name
+HAVING COUNT(*) > 1;
+
+-- Verify no duplicate artists
+SELECT artist_name, COUNT(*)
+FROM artists
+GROUP BY artist_name
+HAVING COUNT(*) > 1;
+
+SELECT album_name, COUNT(*)
+FROM albums
+GROUP BY album_name
+HAVING COUNT(*) > 1;
+
+DELETE FROM albums
+WHERE album_id NOT IN (
+    SELECT MIN(album_id)
+    FROM albums
+    GROUP BY album_name
+);
+
+INSERT INTO albums (album_id, album_name, artist_id, release_date)
+VALUES (
+    (SELECT MAX(album_id) + 1 FROM albums),
+    'The Tortured Poets Department',
+    (SELECT artist_id FROM artists WHERE artist_name = 'Taylor Swift'),
+    TO_DATE('2024-04-19', 'YYYY-MM-DD') -- Assuming today's date as the release date
+);
+
+INSERT INTO albums (album_id, album_name, artist_id, release_date)
+VALUES (
+    (SELECT MAX(album_id) + 1 FROM albums),
+    'The Tortured Poets Department: The Anthology',
+    (SELECT artist_id FROM artists WHERE artist_name = 'Taylor Swift'),
+    TO_DATE('2024-04-19', 'YYYY-MM-DD') -- Assuming today's date as the release date
+);
+
+-- Deleting all data from the artists table
+DELETE FROM artists;
+
+-- Deleting all data from the songs table
+DELETE FROM songs;
+
+-- Deleting all data from the albums table
+DELETE FROM albums;
+
+-- Deleting all data from the reviews table
+DELETE FROM reviews;
+
+-- Deleting all data from the playlists table
+DELETE FROM playlists;
+
+-- Assuming IDs have been auto-generated correctly by the triggers
+
+-- Insert data into the playlists table
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (110, (SELECT user_id FROM users WHERE username = 'sheona' AND ROWNUM = 1), 'Favorite Tracks', SYSDATE);
+
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (111, (SELECT user_id FROM users WHERE username = 'johndoe' AND ROWNUM = 1), 'Chill Vibes', SYSDATE);
+
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (112, (SELECT user_id FROM users WHERE username = 'janesmith' AND ROWNUM = 1), 'Road Trip Mix', SYSDATE);
+
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (113, (SELECT user_id FROM users WHERE username = 'alicej' AND ROWNUM = 1), 'Feel Good Tunes', SYSDATE);
+
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (114, (SELECT user_id FROM users WHERE username = 'bobbrown' AND ROWNUM = 1), 'Workout Jams', SYSDATE);
+
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (115, (SELECT user_id FROM users WHERE username = 'charlied' AND ROWNUM = 1), 'Relaxing Melodies', SYSDATE);
+
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (116, (SELECT user_id FROM users WHERE username = 'dianae' AND ROWNUM = 1), 'Party Anthems', SYSDATE);
+
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (117, (SELECT user_id FROM users WHERE username = 'ethanf' AND ROWNUM = 1), 'Late Night Beats', SYSDATE);
+
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (118, (SELECT user_id FROM users WHERE username = 'fionag' AND ROWNUM = 1), 'Soulful Grooves', SYSDATE);
+
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (119, (SELECT user_id FROM users WHERE username = 'georgeh' AND ROWNUM = 1), 'Study Playlist', SYSDATE);
+
+INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date)
+VALUES (120, (SELECT user_id FROM users WHERE username = 'hannahI' AND ROWNUM = 1), 'Weekend Party Mix', SYSDATE);
+

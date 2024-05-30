@@ -171,5 +171,10 @@ namespace melodisc_a_music_app
             home.Show();
             this.Hide();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

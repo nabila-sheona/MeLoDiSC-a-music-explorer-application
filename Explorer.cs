@@ -14,17 +14,39 @@ namespace melodisc_a_music_app
     public partial class Explorer : Form
     {
         private OracleConnection connection;
-        public Explorer()
+        private string username; // Store the username
+        private int userId;
+        public Explorer(string username)
         {
-            InitializeComponent();
+            this.username = username;
+            InitializeComponent();          
             connection = new OracleConnection("User Id=melodisc1;Password=melodisc1;Data Source=localhost:1521");
             try
             {
                 connection.Open();
+                LoadUserId();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error connecting to database: " + ex.Message);
+            }
+        }
+
+
+
+        private void LoadUserId()
+        {
+            string query = "SELECT user_id FROM users WHERE username = :username";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.Parameters.Add(new OracleParameter("username", username));
+
+            try
+            {
+                userId = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching user ID: " + ex.Message);
             }
         }
 
@@ -109,18 +131,31 @@ namespace melodisc_a_music_app
             string query;
             if (criteria == "Alphabetically")
             {
-                query = "SELECT * FROM playlists ORDER BY playlist_title";
+                query = "SELECT * FROM playlists ORDER BY playlist_title WHERE user_id = :userId";
             }
             else if ( criteria =="Release Date")
             {
-                query = "SELECT * FROM playlists ORDER BY creation_date";
+                query = "SELECT * FROM playlists ORDER BY release_date WHERE user_id = :userId";
             }
             else
             {
-                query = "SELECT * FROM playlists ORDER BY playlist_title";
+                query = "SELECT * FROM playlists ORDER BY playlist_title WHERE user_id = :userId";
             }
 
-            ExecuteQueryAndPopulateDataGridView(query, dataGridView1);
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.Parameters.Add(new OracleParameter("userId", userId));
+
+            try
+            {
+                OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataGridView1.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading playlists: " + ex.Message);
+            }
         }
 
 
@@ -128,6 +163,7 @@ namespace melodisc_a_music_app
         {
             try
             {
+
                 OracleDataAdapter dataAdapter = new OracleDataAdapter(query, connection);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);

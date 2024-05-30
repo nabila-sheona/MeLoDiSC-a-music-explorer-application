@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -92,9 +93,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(66, 403);
+            this.button3.Location = new System.Drawing.Point(53, 230);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(189, 82);
+            this.button3.Size = new System.Drawing.Size(210, 53);
             this.button3.TabIndex = 156;
             this.button3.Text = "ARTIST PROFILE";
             this.button3.UseVisualStyleBackColor = true;
@@ -103,9 +104,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(66, 159);
+            this.button2.Location = new System.Drawing.Point(53, 146);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(189, 82);
+            this.button2.Size = new System.Drawing.Size(210, 53);
             this.button2.TabIndex = 155;
             this.button2.Text = "USER PROFILE";
             this.button2.UseVisualStyleBackColor = true;
@@ -114,9 +115,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(66, 280);
+            this.button4.Location = new System.Drawing.Point(56, 317);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(189, 79);
+            this.button4.Size = new System.Drawing.Size(207, 53);
             this.button4.TabIndex = 157;
             this.button4.Text = "REVIEW SONG";
             this.button4.UseVisualStyleBackColor = true;
@@ -157,11 +158,23 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(56, 404);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(207, 59);
+            this.button5.TabIndex = 159;
+            this.button5.Text = "CREATE PLAYLIST";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 551);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -194,5 +207,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button5;
     }
 }

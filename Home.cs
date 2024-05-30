@@ -67,5 +67,19 @@ namespace melodisc_a_music_app
             otherForm.Show();
             this.Hide();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            TopArtists otherForm = new TopArtists();
+            otherForm.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            TopArtists otherForm = new TopArtists();
+            otherForm.Show();
+            this.Hide();
+        }
     }
 }

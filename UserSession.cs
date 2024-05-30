@@ -9,6 +9,5 @@ namespace melodisc_a_music_app
     public static class UserSession
     {
         public static string user_name { get; set; }
-      
     }
 }

@@ -19,7 +19,7 @@ namespace melodisc_a_music_app
         public UserProfile(string username)
         {
             InitializeComponent();
-            this.user_name = username;
+            user_name = username;
             connection = new OracleConnection("User Id=melodisc1;Password=melodisc1;Data Source=localhost:1521");
             try
             {
@@ -65,16 +65,10 @@ namespace melodisc_a_music_app
 
             try
             {
-                OracleDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    listBox1.Items.Add("Name: " + reader["name"].ToString());
-                    listBox1.Items.Add("Username: " + reader["username"].ToString());
-                    listBox1.Items.Add("Email: " + reader["email"].ToString());
-                    listBox1.Items.Add("Phone: " + reader["phone"].ToString());
-                    listBox1.Items.Add("Gender: " + reader["gender"].ToString());
-                }
-                reader.Close();
+                OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)
             {
@@ -87,7 +81,7 @@ namespace melodisc_a_music_app
         private void LoadPlaylists()
         {
             string query = @"
-                SELECT p.playlist_name AS ""Playlist Name"", p.release_date AS ""Release Date"" 
+                SELECT p.playlist_name AS ""Playlist Name"", p.creation_date AS ""Creation Date"" 
                 FROM playlists p
                 JOIN users u ON p.user_id = u.user_id
                 WHERE u.username = :username";
@@ -96,12 +90,10 @@ namespace melodisc_a_music_app
 
             try
             {
-                OracleDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    listBox2.Items.Add(reader["Playlist Name"].ToString() + " - " + reader["Release Date"].ToString());
-                }
-                reader.Close();
+                OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataGridView2.DataSource = dataTable;
             }
             catch (Exception ex)
             {

@@ -108,7 +108,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridViewUsers);
             this.Name = "Browse";
-            this.Text = "Browse";
+            this.Text = "Browse Users";
             this.Load += new System.EventHandler(this.Browse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);

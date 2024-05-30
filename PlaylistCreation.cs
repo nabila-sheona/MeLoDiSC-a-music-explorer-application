@@ -53,6 +53,7 @@ namespace melodisc_a_music_app
         private void PlaylistCreation_Load(object sender, EventArgs e)
         {
             LoadSongs();
+            LoadPlaylists();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -78,7 +79,7 @@ namespace melodisc_a_music_app
 
         private void CreatePlaylist(string playlistTitle)
         {
-            string query = "INSERT INTO playlists (user_id, playlist_title, release_date) VALUES ( :user_id, :playlist_title, :release_date)";
+            string query = "INSERT INTO playlists (playlist_id, user_id, playlist_title, release_date) VALUES (playlist_id_seq.NEXTVAL, :user_id, :playlist_title, :release_date)";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.Parameters.Add(new OracleParameter("user_id", userId));
             cmd.Parameters.Add(new OracleParameter("playlist_title", playlistTitle));

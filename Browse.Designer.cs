@@ -70,7 +70,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 45);
             this.button1.TabIndex = 164;
-            this.button1.Text = "Home";
+            this.button1.Text = "Admin";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -108,7 +108,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridViewUsers);
             this.Name = "Browse";
-            this.Text = "Browse";
+            this.Text = "Browse Users";
             this.Load += new System.EventHandler(this.Browse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);

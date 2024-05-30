@@ -83,7 +83,7 @@ namespace melodisc_a_music_app
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Home home = new Home();
+            AdminForm home = new AdminForm();
             home.Show();
             this.Hide();
         }

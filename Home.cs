@@ -19,7 +19,7 @@ namespace melodisc_a_music_app
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Explorer otherForm = new Explorer();
+            Explorer otherForm = new Explorer(UserSession.user_name);
             otherForm.Show();
             this.Hide();
 
@@ -36,7 +36,7 @@ namespace melodisc_a_music_app
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Explorer otherForm = new Explorer();
+            Explorer otherForm = new Explorer(UserSession.user_name);
             otherForm.Show();
             this.Hide();
         }
@@ -64,6 +64,27 @@ namespace melodisc_a_music_app
         private void button4_Click(object sender, EventArgs e)
         {
             Review otherForm = new Review(UserSession.user_name);
+            otherForm.Show();
+            this.Hide();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            TopArtists otherForm = new TopArtists();
+            otherForm.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            TopArtists otherForm = new TopArtists();
+            otherForm.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            PlaylistCreation otherForm = new PlaylistCreation(UserSession.user_name);
             otherForm.Show();
             this.Hide();
         }

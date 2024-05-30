@@ -37,49 +37,195 @@ namespace melodisc_a_music_app
         private void button3_Click(object sender, EventArgs e)
         {
             //top album button
-            string criteria = comboBox3.SelectedItem.ToString();
-            int topN = int.Parse(textBox3.Text.Trim());
-            LoadTopAlbums(criteria, topN);
-        }
+            //top album button
+            if (comboBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a criteria.");
+                return;
+            }
 
+            string criteria = comboBox3.SelectedItem.ToString();
+            if (int.TryParse(textBox3.Text.Trim(), out int topN))
+            {
+                LoadTopAlbums(criteria, topN);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid number.");
+            }
+
+        }
 
         private void LoadTopAlbums(string criteria, int topN)
         {
-            string resultString = CallFunction("get_top_albums", new OracleParameter("criteria", criteria), new OracleParameter("topN", topN));
-            PopulateDataGridView(resultString, dataGridView1, new string[] { "Album Name", "Artist Name", "Release Date" });
+            try
+            {
+                OracleCommand cmd = new OracleCommand("GetTopAlbums", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("criteria", OracleDbType.Varchar2).Value = criteria;
+                cmd.Parameters.Add("topN", OracleDbType.Int32).Value = topN;
+                cmd.Parameters.Add("result", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                OracleDataReader reader = cmd.ExecuteReader();
+                StringBuilder resultStringBuilder = new StringBuilder();
+
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        resultStringBuilder.Append(reader[i].ToString());
+                        if (i < reader.FieldCount - 1)
+                            resultStringBuilder.Append(",");
+                    }
+                    resultStringBuilder.Append(";");
+                }
+
+                reader.Close();
+                string resultString = resultStringBuilder.ToString();
+                PopulateDataGridView(resultString, dataGridView1, new string[] { "Album Name", "Artist Name", "Release Date" });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error executing query: {ex.Message}");
+            }
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             //top artist rating button
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a gender.");
+                return;
+            }
+
             string gender = comboBox1.SelectedItem.ToString();
-            int topN = int.Parse(textBox1.Text.Trim());
-            LoadTopVocalists(gender, topN);
+            if (int.TryParse(textBox1.Text.Trim(), out int topN))
+            {
+                LoadTopVocalists(gender, topN);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid number.");
+            }
 
         }
 
         private void LoadTopVocalists(string gender, int topN)
         {
-            string resultString = CallFunction("get_top_artists_by_rating", new OracleParameter("gender", gender), new OracleParameter("topN", topN));
-            PopulateDataGridView(resultString, dataGridView1, new string[] { "Artist Name", "Average Rating" });
+            try
+            {
+                OracleCommand cmd = new OracleCommand("GetTopVocalists", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("gender", OracleDbType.Varchar2).Value = gender;
+                cmd.Parameters.Add("topN", OracleDbType.Int32).Value = topN;
+                cmd.Parameters.Add("result", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                OracleDataReader reader = cmd.ExecuteReader();
+                StringBuilder resultStringBuilder = new StringBuilder();
+
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        resultStringBuilder.Append(reader[i].ToString());
+                        if (i < reader.FieldCount - 1)
+                            resultStringBuilder.Append(",");
+                    }
+                    resultStringBuilder.Append(";");
+                }
+
+                reader.Close();
+                string resultString = resultStringBuilder.ToString();
+                PopulateDataGridView(resultString, dataGridView1, new string[] { "Artist Name", "Average Rating" });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error executing query: {ex.Message}");
+            }
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
             //top artist released song button
+            if (int.TryParse(textBox2.Text.Trim(), out int topN))
+            {
+                LoadTopByMostReleased(topN);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid number.");
+            }
 
-            int topN = int.Parse(textBox2.Text.Trim());
-            LoadTopByMostReleased(topN);
+
 
         }
-
 
         private void LoadTopByMostReleased(int topN)
         {
-            string resultString = CallFunction("get_top_artists_by_most_released", new OracleParameter("topN", topN));
-            PopulateDataGridView(resultString, dataGridView1, new string[] { "Artist Name", "Total Songs" });
+            try
+            {
+                OracleCommand cmd = new OracleCommand("GetTopArtistsByReleasedSongs", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("topN", OracleDbType.Int32).Value = topN;
+                cmd.Parameters.Add("result", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                OracleDataReader reader = cmd.ExecuteReader();
+                StringBuilder resultStringBuilder = new StringBuilder();
+
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        resultStringBuilder.Append(reader[i].ToString());
+                        if (i < reader.FieldCount - 1)
+                            resultStringBuilder.Append(",");
+                    }
+                    resultStringBuilder.Append(";");
+                }
+
+                reader.Close();
+                string resultString = resultStringBuilder.ToString();
+                PopulateDataGridView(resultString, dataGridView1, new string[] { "Artist Name", "Total Songs" });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error executing query: {ex.Message}");
+            }
         }
 
+
+        private string ExecuteQuery(string query)
+        {
+            try
+            {
+                OracleCommand cmd = new OracleCommand(query, connection);
+                OracleDataReader reader = cmd.ExecuteReader();
+                StringBuilder resultStringBuilder = new StringBuilder();
+
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        resultStringBuilder.Append(reader[i].ToString());
+                        if (i < reader.FieldCount - 1)
+                            resultStringBuilder.Append(",");
+                    }
+                    resultStringBuilder.Append(";");
+                }
+
+                reader.Close();
+                return resultStringBuilder.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error executing query: {ex.Message}\nQuery: {query}");
+                return null;
+            }
+        }
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             //top album
@@ -104,38 +250,6 @@ namespace melodisc_a_music_app
         {
             //top artist rating
         }
-
-
-
-
-        private string CallFunction(string functionName, params OracleParameter[] parameters)
-        {
-            string query = $"BEGIN :result := {functionName}(:params); END;";
-            OracleCommand cmd = new OracleCommand(query, connection);
-            cmd.CommandType = CommandType.Text;
-
-            OracleParameter resultParam = new OracleParameter("result", OracleDbType.Varchar2, 32767);
-            resultParam.Direction = ParameterDirection.ReturnValue;
-            cmd.Parameters.Add(resultParam);
-
-            foreach (var param in parameters)
-            {
-                cmd.Parameters.Add(param);
-            }
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-                return resultParam.Value.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error calling {functionName}: " + ex.Message);
-                return null;
-            }
-        }
-
-
 
 
 

@@ -19,7 +19,7 @@ namespace melodisc_a_music_app
         public UserProfile(string username)
         {
             InitializeComponent();
-            user_name = username;
+            this.user_name = username;
             connection = new OracleConnection("User Id=melodisc1;Password=melodisc1;Data Source=localhost:1521");
             try
             {
@@ -65,10 +65,16 @@ namespace melodisc_a_music_app
 
             try
             {
-                OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                dataGridView1.DataSource = dataTable;
+                OracleDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    textBox1.Text = reader["name"].ToString();
+                    textBox2.Text = reader["username"].ToString();
+                    textBox3.Text = reader["email"].ToString();
+                    textBox4.Text = reader["phone"].ToString();
+                    textBox5.Text = reader["gender"].ToString();
+                }
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -76,12 +82,10 @@ namespace melodisc_a_music_app
             }
         }
 
-
-
         private void LoadPlaylists()
         {
             string query = @"
-                SELECT p.playlist_name AS ""Playlist Name"", p.creation_date AS ""Creation Date"" 
+                SELECT p.playlist_title AS ""Playlist Name"", p.release_date AS ""Release Date"" 
                 FROM playlists p
                 JOIN users u ON p.user_id = u.user_id
                 WHERE u.username = :username";
@@ -90,19 +94,19 @@ namespace melodisc_a_music_app
 
             try
             {
-                OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                dataGridView2.DataSource = dataTable;
+                adapter.Fill(dataTable);
+                dataGridViewUsers.DataSource = dataTable;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading playlists: " + ex.Message);
             }
-
-
-
         }
+
+
+
         private void label1_Click(object sender, EventArgs e)
         {
             //it shows the name of the user
@@ -159,6 +163,36 @@ namespace melodisc_a_music_app
         }
 
         private void UserProfile_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -17,10 +17,7 @@ namespace melodisc_a_music_app
     {
         private OracleConnection connection;
 
-        //private List<int> songnumber = new List<int>();
-        //private List<string> artist = new List<string>();
-        //private List<string> name = new List<string>();
-        //private List<string> album = new List<string>();
+       
 
         public AddSong()
         {
@@ -29,7 +26,7 @@ namespace melodisc_a_music_app
             try
             {
                 connection.Open();
-                //LoadUsers();
+           
             }
             catch (Exception ex)
             {
@@ -46,40 +43,9 @@ namespace melodisc_a_music_app
 
         private void AddSong_Load(object sender, EventArgs e)
         {
-           /*string query = "SELECT username FROM users";
-            OracleCommand cmd = new OracleCommand(query, connection);
-            OracleDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                name.Add(reader.GetString(0));
-            }
-            reader.Close();
-            
-            LoadUsers();
-           */
+           
         }
-        private void LoadUsers()
-        {
-            /*string query = "SELECT * FROM songs";
-            OracleCommand cmd = new OracleCommand(query, connection);
-            try
-            {
-                OracleDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    name.Add(reader.GetString(0));
-                    artist.Add(reader.GetString(1));
-                    album.Add(reader.GetString(2));
-                    
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading users: " + ex.Message);
-            }
-            */
-        }
+       
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -93,7 +59,7 @@ namespace melodisc_a_music_app
 
             try
             {
-                // Fetch genre_id from genres table
+                
                 string genreQuery = "SELECT genre_id FROM genres WHERE genre_name = :genreName";
                 OracleCommand genreCmd = new OracleCommand(genreQuery, connection);
                 genreCmd.Parameters.Add(new OracleParameter("genreName", genreName));
@@ -105,13 +71,13 @@ namespace melodisc_a_music_app
                 }
                 else
                 {
-                    // If genre does not exist, insert new genre
+                    
                     string insertGenreQuery = "INSERT INTO genres (genre_name) VALUES (:genreName)";
                     OracleCommand insertGenreCmd = new OracleCommand(insertGenreQuery, connection);
                     insertGenreCmd.Parameters.Add(new OracleParameter("genreName", genreName));
                     insertGenreCmd.ExecuteNonQuery();
 
-                    // Fetch the newly inserted genre_id
+                    
                     genreCmd = new OracleCommand(genreQuery, connection);
                     genreCmd.Parameters.Add(new OracleParameter("genreName", genreName));
                     genreReader = genreCmd.ExecuteReader();
@@ -120,7 +86,7 @@ namespace melodisc_a_music_app
                 }
                 genreReader.Close();
 
-                // Fetch artist_id from artists table
+                
                 string artistQuery = "SELECT artist_id FROM artists WHERE artist_name = :artistName";
                 OracleCommand artistCmd = new OracleCommand(artistQuery, connection);
                 artistCmd.Parameters.Add(new OracleParameter("artistName", artistName));
@@ -138,7 +104,7 @@ namespace melodisc_a_music_app
                 }
                 artistReader.Close();
 
-                // Fetch album_id from albums table
+                
                 string albumQuery = "SELECT album_id FROM albums WHERE album_name = :albumName";
                 OracleCommand albumCmd = new OracleCommand(albumQuery, connection);
                 albumCmd.Parameters.Add(new OracleParameter("albumName", albumName));
@@ -157,7 +123,7 @@ namespace melodisc_a_music_app
                 }
                 albumReader.Close();
 
-                // Insert new song into songs table
+                
                 string insertQuery = "INSERT INTO songs (song_name, album_name, song_number, genre_id, duration, release_date, artist_id) " +
                                      "VALUES (:songName, :albumName, :songNumber, :genreId, :duration, :releaseDate, :artistId)";
                 OracleCommand insertCmd = new OracleCommand(insertQuery, connection);

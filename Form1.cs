@@ -74,19 +74,15 @@ namespace melodisc_a_music_app
         private void button3_Click(object sender, EventArgs e)
         {
             usern = textBox1.Text.Trim();
-            string password = textBox2.Text; // No trimming here, passwords might have leading/trailing spaces
+            string password = textBox2.Text;
 
             Console.WriteLine($"Login Attempt: Username = '{usern}', Password = '{password}'");
 
-            // Case-insensitive comparison for usernames
+            
             int userIndex = user.FindIndex(u => u.Equals(usern, StringComparison.OrdinalIgnoreCase));
 
             if (userIndex >= 0 && pass.Count > userIndex && pass[userIndex] == password)
             {
-                //MessageBox.Show("The username/password is correct");
-                // Navigate to another form or functionality as required
-
-                // Clear text boxes for the next login attempt
                 textBox1.Text = "";
                 textBox2.Text = "";
 
@@ -220,11 +216,3 @@ namespace melodisc_a_music_app
 
 
 
-//CREATE TABLE admins (
-  //  admin_id VARCHAR2(50) PRIMARY KEY,
-    //password VARCHAR2(50) NOT NULL
-//);
-
-//INSERT INTO admins (admin_id, password) VALUES('sheona', 'sheona');
-//INSERT INTO admins (admin_id, password) VALUES('moumita', 'moumita');
-//INSERT INTO admins (admin_id, password) VALUES('faiza', 'faiza');

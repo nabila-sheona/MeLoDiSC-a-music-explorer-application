@@ -16,9 +16,6 @@ namespace melodisc_a_music_app
     {
         private OracleConnection connection;
 
-        //private List<string> artist = new List<string>();
-       // private List<string> name = new List<string>();
-
         public AddAlbum()
         {
             InitializeComponent();
@@ -47,24 +44,7 @@ namespace melodisc_a_music_app
         }
         private void LoadUsers()
         {
-           /*string query = "SELECT * FROM albums";
-            OracleCommand cmd = new OracleCommand(query, connection);
-            try
-            {
-                OracleDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    name.Add(reader.GetString(0));
-                    artist.Add(reader.GetString(1));
-                   
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading users: " + ex.Message);
-            }
-           */
+           
         }
 
         private void button3_Click(object sender, EventArgs e)

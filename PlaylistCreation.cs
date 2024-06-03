@@ -14,7 +14,7 @@ namespace melodisc_a_music_app
     public partial class PlaylistCreation : Form
     {
         private OracleConnection connection;
-        private string username; // Store the username
+        private string username;
         private int userId;
         public PlaylistCreation(string username)
         {

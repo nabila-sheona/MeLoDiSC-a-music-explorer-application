@@ -18,10 +18,6 @@ namespace melodisc_a_music_app
         private OracleConnection connection;
 
 
-        //private List<int> year = new List<int>();
-        //private List<string> email = new List<string>();
-        //private List<string> name = new List<string>();
-        //private List<string> gender = new List<string>();
         public AddArtist()
         {
             InitializeComponent();
@@ -55,25 +51,7 @@ namespace melodisc_a_music_app
         }
         private void LoadUsers()
         {
-            /*
-            string query = "SELECT * FROM artists";
-            OracleCommand cmd = new OracleCommand(query, connection);
-            try
-            {
-                OracleDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    name.Add(reader.GetString(0));
-                    gender.Add(reader.GetString(1));
-                    email.Add(reader.GetString(2));
-                   // year.Add(reader.GetString(3));
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading users: " + ex.Message);
-            }*/
+
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -102,7 +80,7 @@ namespace melodisc_a_music_app
 
             try
             {
-                // Insert new artist into artists table
+                
                 string insertQuery = "INSERT INTO artists (artist_name, gender, email, birthyear, no_of_songs, no_of_albums, biography) " +
                                      "VALUES (:artistName, :gender, :email, :birthYear, :noOfSongs, :noOfAlbums, :biography)";
 

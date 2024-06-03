@@ -36,7 +36,7 @@ namespace melodisc_a_music_app
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //top album button
+            
             //top album button
             if (comboBox3.SelectedItem == null)
             {
@@ -124,11 +124,11 @@ namespace melodisc_a_music_app
                 OracleCommand command = new OracleCommand("GetTopVocalists", connection);
                 command.CommandType = CommandType.StoredProcedure;
 
-                // Define the input parameters
+               
                 command.Parameters.Add("p_gender", OracleDbType.Varchar2).Value = gender;
                 command.Parameters.Add("p_topN", OracleDbType.Int32).Value = topN;
 
-                // Define the output cursor parameter
+                
                 command.Parameters.Add("p_cursor", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
                 OracleDataReader reader = command.ExecuteReader();

@@ -1,0 +1,204 @@
+CREATE SEQUENCE user_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+
+
+CREATE OR REPLACE TRIGGER user_id_trigger
+BEFORE INSERT ON users
+FOR EACH ROW
+BEGIN
+    SELECT user_id_seq.NEXTVAL INTO :NEW.user_id FROM dual;
+END;
+/
+
+
+CREATE SEQUENCE genre_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+
+
+CREATE OR REPLACE TRIGGER genre_id_trigger
+BEFORE INSERT ON genres
+FOR EACH ROW
+BEGIN
+    SELECT genre_id_seq.NEXTVAL INTO :NEW.genre_id FROM dual;
+END;
+/
+
+
+
+
+CREATE SEQUENCE song_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+
+
+CREATE OR REPLACE TRIGGER song_id_trigger
+BEFORE INSERT ON songs
+FOR EACH ROW
+BEGIN
+    SELECT song_id_seq.NEXTVAL INTO :NEW.song_id FROM dual;
+END;
+/
+
+
+
+CREATE SEQUENCE album_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+
+
+CREATE OR REPLACE TRIGGER album_id_trigger
+BEFORE INSERT ON albums
+FOR EACH ROW
+BEGIN
+    SELECT album_id_seq.NEXTVAL INTO :NEW.album_id FROM dual;
+END;
+/
+
+
+
+
+CREATE SEQUENCE artist_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+
+
+CREATE OR REPLACE TRIGGER artist_id_trigger
+BEFORE INSERT ON artists
+FOR EACH ROW
+BEGIN
+    SELECT artist_id_seq.NEXTVAL INTO :NEW.artist_id FROM dual;
+END;
+/
+
+
+
+CREATE SEQUENCE playlist_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+
+
+CREATE OR REPLACE TRIGGER playlist_id_trigger
+BEFORE INSERT ON playlists
+FOR EACH ROW
+BEGIN
+    SELECT playlist_id_seq.NEXTVAL INTO :NEW.playlist_id FROM dual;
+END;
+/
+
+
+CREATE SEQUENCE review_id_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+
+
+CREATE OR REPLACE TRIGGER review_id_trigger
+BEFORE INSERT ON reviews
+FOR EACH ROW
+BEGIN
+    SELECT review_id_seq.NEXTVAL INTO :NEW.review_id FROM dual;
+END;
+/
+
+
+
+
+CREATE OR REPLACE FUNCTION get_top_artists_by_rating(gender IN VARCHAR2, topN IN NUMBER)
+RETURN VARCHAR2
+IS
+    result_string VARCHAR2(32767);
+    CURSOR artist_cursor IS
+        SELECT a.artist_name, AVG(r.rating) AS avg_rating
+        FROM artists a
+        JOIN songs s ON a.artist_id = s.artist_id
+        JOIN reviews r ON s.song_id = r.song_id
+        WHERE a.gender = gender
+        GROUP BY a.artist_name
+        ORDER BY avg_rating DESC
+        FETCH FIRST topN ROWS ONLY;
+BEGIN
+    FOR artist IN artist_cursor LOOP
+        result_string := result_string || artist.artist_name || ',' || artist.avg_rating || ';';
+    END LOOP;
+    RETURN result_string;
+END;
+/
+
+
+
+
+
+
+CREATE OR REPLACE FUNCTION get_top_artists_by_most_released(topN IN NUMBER)
+RETURN VARCHAR2
+IS
+    result_string VARCHAR2(32767);
+    CURSOR artist_cursor IS
+        SELECT a.artist_name, COUNT(s.song_id) AS total_songs
+        FROM artists a
+        JOIN songs s ON a.artist_id = s.artist_id
+        GROUP BY a.artist_name
+        ORDER BY total_songs DESC
+        FETCH FIRST topN ROWS ONLY;
+BEGIN
+    FOR artist IN artist_cursor LOOP
+        result_string := result_string || artist.artist_name || ',' || artist.total_songs || ';';
+    END LOOP;
+    RETURN result_string;
+END;
+/
+
+
+
+
+
+
+
+
+
+CREATE OR REPLACE FUNCTION get_top_albums(criteria IN VARCHAR2, topN IN NUMBER)
+RETURN VARCHAR2
+IS
+    result_string VARCHAR2(32767);
+    CURSOR album_cursor IS
+        SELECT a.album_name, ar.artist_name, a.release_date
+        FROM albums a
+        JOIN artists ar ON ar.artist_id = a.artist_id
+        ORDER BY 
+            CASE 
+                WHEN criteria = 'Alphabetically' THEN a.album_name
+                WHEN criteria = 'Date of Release' THEN a.release_date
+            END
+        FETCH FIRST topN ROWS ONLY;
+BEGIN
+    FOR album IN album_cursor LOOP
+        result_string := result_string || album.album_name || ',' || album.artist_name || ',' || album.release_date || ';';
+    END LOOP;
+    RETURN result_string;
+END;
+/
+
+
+

@@ -1,0 +1,39 @@
+We are making a project which is a music management system where all the following things are the features. We are using C# and oracle sql to connect with the database. This is basically database related project. 
+
+
+
+Features:
+1. Song Browsing and Searching
+a)Alphabetically Sorting
+b)Genre-Based Sorting
+c)Release date Sorting
+
+2. Album Browsing and Searching
+a)Alphabetically Sorting
+b)release date Sorting
+
+3. Artist Profiles
+user can search for an artist and then see all the songs and albums under their name
+
+4. User-Created Playlists
+user can create playlist from the number of songs made by any artist
+
+5. User Reviews and Ratings
+user can rate a song from 1-10 and then give some review
+but once given he cannot give it again 
+
+6. User Authentication and Account Management
+a)user login system (email and password)
+b)editing user profile (password change)
+
+
+7. Top N Lists
+a)Top N Vocalists - Male/Female (Based on Ratings)
+b)Top N Artist Based on Most released song
+c)Top N Albums (Alphabetically/release date)
+
+8.admin 
+a)Add songs
+b) add album
+c) add artist
+d)view users

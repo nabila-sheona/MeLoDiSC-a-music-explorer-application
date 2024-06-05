@@ -1,0 +1,103 @@
+-- Existing table for storing admin information
+CREATE TABLE admins (
+    admin_id VARCHAR2(50) PRIMARY KEY,
+    password VARCHAR2(50) NOT NULL
+);
+
+
+
+-- Table for storing genre information
+CREATE TABLE genres (
+    genre_id INT PRIMARY KEY,
+    genre_name VARCHAR2(255) NOT NULL
+);
+
+
+-- Updated table for storing artist information with existing columns
+CREATE TABLE artists (
+    artist_id INT PRIMARY KEY,
+    artist_name VARCHAR2(255),
+    gender VARCHAR2(10),
+    email VARCHAR2(255),
+    birthyear INT,
+    no_of_songs INT,
+    no_of_albums INT,
+    biography CLOB
+);
+
+-- Updated table for storing song information with existing columns
+CREATE TABLE songs (
+    song_id INT PRIMARY KEY,
+    song_name VARCHAR2(255),
+    album_name VARCHAR2(255),
+    song_number INT,
+    genre_id INT,
+    duration NUMBER,
+    release_date DATE,
+    artist_id INT,
+    FOREIGN KEY (artist_id) REFERENCES artists(artist_id),
+    FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
+);
+
+
+-- Updated table for storing album information with existing columns
+CREATE TABLE albums (
+    album_id INT PRIMARY KEY,
+    album_name VARCHAR2(255),
+    artist_id INT,
+    release_date DATE,
+    FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
+);
+
+
+
+-- Table for storing user information
+CREATE TABLE users (
+    user_id INT PRIMARY KEY,
+    name VARCHAR2(255) NOT NULL,
+    username VARCHAR2(255) NOT NULL,
+    password VARCHAR2(255) NOT NULL,
+    email VARCHAR2(255) NOT NULL,
+    phone VARCHAR2(20) NOT NULL,
+    gender VARCHAR2(10)
+);
+
+
+
+-- Table for storing playlist information
+CREATE TABLE playlists (
+    playlist_id INT PRIMARY KEY,
+    user_id INT,
+    playlist_title VARCHAR2(255),
+    release_date DATE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- Associative table to handle many-to-many relationship between Playlist and Song
+CREATE TABLE playlist_song (
+    playlist_id INT,
+    song_id INT,
+    PRIMARY KEY (playlist_id, song_id),
+    FOREIGN KEY (playlist_id) REFERENCES playlists(playlist_id),
+    FOREIGN KEY (song_id) REFERENCES songs(song_id)
+);
+
+
+CREATE TABLE reviews (
+    review_id INT PRIMARY KEY,
+    user_id INT,
+    song_id INT,
+    rating INT CHECK (rating BETWEEN 1 AND 10),
+    review_date DATE,
+    review CLOB,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (song_id) REFERENCES songs(song_id)
+);
+
+
+
+
+
+
+
+
